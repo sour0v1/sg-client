@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import logo from '../../../assets/images/sg-logo.jpg'
-import { CiMenuBurger } from 'react-icons/ci';
 import { HiMenu } from 'react-icons/hi';
 import { RxCross1 } from 'react-icons/rx';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
 
-    const handleClick = (event) => {
-        console.log(event.target.closest('.sidebar'));
-       
-    }
     return (
         <>
-            <div onClick={handleClick} className='flex justify-between items-center gap-2 w-full px-3 lg:px-6 bg-[#FFFBF5] py-3 shadow-md'>
+            <div className='flex justify-between items-center gap-2 w-full px-6 lg:px-6 bg-[#FFFBF5] py-3 shadow-md'>
                 <div className='flex justify-center items-center gap-2'>
                     <div>
                         <img className='w-16 h-16 rounded-full border-2' src={logo} alt="logo" />
@@ -25,12 +22,12 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300' } lg:static border-r`}>
-                    <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 h-screen lg:h-auto px-6 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276]'>
-                        <p>Home</p>
-                        <p>Books</p>
-                        <p>Members</p>
-                        <p>Become a Member</p>
-                        <p>Log In</p>
+                    <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 h-screen lg:h-auto px-6 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
+                        <NavLink onClick={() => setOpen(false)} to={'/'}>Home</NavLink>
+                        <NavLink onClick={() => setOpen(false)} to={'/books'}>Books</NavLink>
+                        <NavLink to={'/members'}>Members</NavLink>
+                        <NavLink to={'/registration'}>Become a Member</NavLink>
+                        <NavLink to={'/login'}>Log In</NavLink>
                     </ul>
                 </div>
                 <h2 onClick={() => setOpen(!open)} className='text-4xl lg:hidden text-[#0D9276]'>
