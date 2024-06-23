@@ -7,6 +7,8 @@ import './Navbar.css'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [dropdown, setDropDown] = useState(false);
+    const user = true;
 
     return (
         <>
@@ -21,20 +23,36 @@ const Navbar = () => {
 
                     </div>
                 </div>
-                <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300' } lg:static border-r`}>
-                    <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 h-screen lg:h-auto px-6 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
+                <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300'} lg:static border-r`}>
+                    <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 h-screen lg:h-auto px-9 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
                         <NavLink onClick={() => setOpen(false)} to={'/'}>Home</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/books'}>Books</NavLink>
-                        <NavLink to={'/members'}>Members</NavLink>
-                        <NavLink to={'/registration'}>Become a Member</NavLink>
-                        <NavLink to={'/login'}>Log In</NavLink>
+                        <NavLink onClick={() => setOpen(false)} to={'/members/executive-members/'}>Members</NavLink>
+                        {
+                            !user ?
+                                <>
+                                    <NavLink to={'/registration'}>Become a Member</NavLink>
+                                    <NavLink to={'/login'}>Log In</NavLink>
+                                </> :
+                                <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full hidden lg:block' src="" alt="profile" /></button>
+                        }
                     </ul>
                 </div>
-                <h2 onClick={() => setOpen(!open)} className='text-4xl lg:hidden text-[#0D9276]'>
-                {
-                    !open ? <HiMenu /> : <RxCross1 />
-                }
-                </h2>
+                <div className='flex justify-center items-center gap-2 lg:hidden'>
+                    {
+                        user && <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full' src="" alt="profile" /></button>
+                    }
+                    <h2 onClick={() => setOpen(!open)} className='text-4xl text-[#0D9276]'>
+                        {
+                            !open ? <HiMenu /> : <RxCross1 />
+                        }
+                    </h2>
+                </div>
+            </div>
+            <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-4 w-fit absolute top-24 right-0 ${dropdown ? 'transform duration-300' : 'opacity-0'} border mr-6`}>
+                <h2 className='font-medium'>Name</h2>
+                <NavLink>Dashboard</NavLink>
+                <button className='text-left'>Log Out</button>
             </div>
         </>
     );

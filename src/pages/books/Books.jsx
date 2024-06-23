@@ -8,7 +8,7 @@ const Books = () => {
         <div className='max-w-5xl mx-auto px-6 lg:px-0'>
             <div className='w-full'>
                 {/* category */}
-                <h2 className='text-xl font-bold text-center text-[#0D9276] my-3'>-- ক্যাটেগরি --</h2>
+                <h2 className='text-xl font-bold text-center text-[#0D9276] my-6'>-- ক্যাটেগরি --</h2>
                 <div className='category flex flex-wrap justify-center items-center gap-6'>
                     <NavLink className={''}>উপন্যাস</NavLink>
                     <NavLink>গল্প</NavLink>
