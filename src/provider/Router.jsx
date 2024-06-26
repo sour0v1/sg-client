@@ -6,6 +6,13 @@ import Members from "../pages/members/Members";
 import ExecutiveMembers from "../pages/members/ExecutiveMembers";
 import AdvisoryMembers from "../pages/members/AdvisoryMembers";
 import ReaderMembers from "../pages/members/ReaderMembers";
+import Dashboard from "../pages/dashboard/Dashboard";
+import AdminProfile from "../pages/dashboard/admin/AdminProfile";
+import AddBook from "../pages/dashboard/admin/AddBook";
+import GeneralMembers from "../pages/members/GeneralMembers";
+import LifetimeMembers from "../pages/members/LifetimeMembers";
+import MemberRequest from "../pages/dashboard/admin/MemberRequest";
+import AddMember from "../pages/dashboard/admin/AddMember";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +48,36 @@ const router = createBrowserRouter([
             {
                 path : 'reader-members',
                 element : <ReaderMembers></ReaderMembers>
+            },
+            {
+                path : 'general-members',
+                element : <GeneralMembers></GeneralMembers>
+            },
+            {
+                path : 'lifetime-members',
+                element : <LifetimeMembers></LifetimeMembers>
+            }
+        ]
+    },
+    {
+        path : '/dashboard',
+        element : <Dashboard></Dashboard>,
+        children : [
+            {
+                path : 'admin/profile',
+                element : <AdminProfile></AdminProfile>
+            },
+            {
+                path : 'admin/add-book',
+                element : <AddBook></AddBook>
+            },
+            {
+                path : 'admin/member-request',
+                element : <MemberRequest></MemberRequest>
+            },
+            {
+                path : 'admin/add-member',
+                element : <AddMember></AddMember>
             }
         ]
     }

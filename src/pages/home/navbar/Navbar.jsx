@@ -24,7 +24,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300'} lg:static border-r`}>
-                    <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 h-screen lg:h-auto px-9 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
+                    <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-5 h-screen lg:h-auto px-9 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
                         <NavLink onClick={() => setOpen(false)} to={'/'}>Home</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/books'}>Books</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/members/executive-members/'}>Members</NavLink>
@@ -49,9 +49,9 @@ const Navbar = () => {
                     </h2>
                 </div>
             </div>
-            <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-4 w-fit absolute top-24 right-0 ${dropdown ? 'transform duration-300' : 'opacity-0'} border mr-6`}>
+            <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-4 w-fit absolute top-24 right-0 z-20 ${dropdown ? 'transform duration-300' : 'hidden'} border mr-6`}>
                 <h2 className='font-medium'>Name</h2>
-                <NavLink>Dashboard</NavLink>
+                <NavLink to={'/dashboard'}>Dashboard</NavLink>
                 <button className='text-left'>Log Out</button>
             </div>
         </>
