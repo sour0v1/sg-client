@@ -27,7 +27,7 @@ const Navbar = () => {
                     <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-5 h-screen lg:h-auto px-9 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
                         <NavLink onClick={() => setOpen(false)} to={'/'}>Home</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/books/category/all'}>Books</NavLink>
-                        <NavLink onClick={() => setOpen(false)} to={'/members/executive-members/'}>Members</NavLink>
+                        <NavLink onClick={() => setOpen(false)} to={'/members/member/executive'}>Members</NavLink>
                         {
                             !user ?
                                 <>

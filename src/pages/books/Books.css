@@ -1,4 +1,7 @@
 .category a.active {
-    text-decoration: underline;
     color: #FF7D29;
+}
+
+.category a {
+    text-decoration: underline;
 }

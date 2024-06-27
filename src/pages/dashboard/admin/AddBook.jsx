@@ -50,7 +50,6 @@ const AddBook = () => {
     if (loading) {
         return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-full'>
             <span className="loading loading-bars loading-lg"></span>
-            <p>loading</p>
         </div>
     }
     return (

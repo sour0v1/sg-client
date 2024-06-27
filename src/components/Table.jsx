@@ -47,17 +47,17 @@ const Table = () => {
         },
         enabled: !!searchValue
     })
-    console.log(searchedBooks)
-    console.log(searchedBooks?.length)
+    console.log('searched books - ',searchedBooks)
+    console.log('category books -', data?.books)
     return (
         <div>
             <div className='w-full text-center'>
-                <input onChange={handleSearch} className='py-3 px-3 bg-[#FF7D29] bg-opacity-10 my-6 w-full rounded-full outline-[#FF7D29] lg:w-2/3' placeholder='বই এর নাম অথবা লেখকের নাম দিয়ে সার্চ করুন' type="text" />
+                <input onChange={handleSearch} className='py-3 px-3 bg-[rgb(255,125,41)] bg-opacity-10 my-6 w-full rounded-full outline-[#FF7D29] lg:w-2/3' placeholder='বই এর নাম অথবা লেখকের নাম দিয়ে সার্চ করুন' type="text" />
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-[#0D9276]  text-white'>
                         <tr className='text-center'>
                             <th>নিবন্ধন নং</th>
                             <th>বই</th>
@@ -67,14 +67,14 @@ const Table = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            searchValue && searchedBooks?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 === 0 && 'bg-gray-100'} text-center`}>
+                            searchValue && searchedBooks?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 !== 0 && 'bg-gray-100'} text-center`}>
                                 <th>{book?.bookIdentityNo}</th>
                                 <td>{book?.bookName}</td>
                                 <td>{book?.author}</td>
                             </tr>)
                         }
                         {
-                            !searchValue && data?.books?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 === 0 && 'bg-gray-100'} text-center`}>
+                            !searchValue && data?.books?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 !== 0 && 'bg-gray-100'} text-center`}>
                                 <th>{book?.bookIdentityNo}</th>
                                 <td>{book?.bookName}</td>
                                 <td>{book?.author}</td>
