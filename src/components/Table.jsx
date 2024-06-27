@@ -10,6 +10,7 @@ const Table = () => {
     const [currentPage, setCurrentPage] = useState(1);
     // const [totalPage, setTotalPage] = useState(1);
     console.log(category);
+    // books by category
     const { data } = useQuery({
         queryKey: ['books', category, currentPage],
         queryFn: async () => {
@@ -17,6 +18,7 @@ const Table = () => {
             return res.data;
         }
     })
+
     // console.log(data)
     const totalPage = data?.totalPage;
     const handleNextPage = () => {
@@ -29,8 +31,29 @@ const Table = () => {
             setCurrentPage(currentPage - 1);
         }
     }
+    // search
+    const [searchValue, setSearchValue] = useState('');
+    const handleSearch = async (e) => {
+        const search = e.target.value;
+        setSearchValue(search);
+    }
+    console.log(searchValue);
+    // books by search
+    const { data: searchedBooks } = useQuery({
+        queryKey: ['searchedBooks', searchValue],
+        queryFn: async () => {
+            const res = await axiosPublic(`/search-books?searchValue=${searchValue}`)
+            return res.data;
+        },
+        enabled: !!searchValue
+    })
+    console.log(searchedBooks)
+    console.log(searchedBooks?.length)
     return (
         <div>
+            <div className='w-full text-center'>
+                <input onChange={handleSearch} className='py-3 px-3 bg-[#FF7D29] bg-opacity-10 my-6 w-full rounded-full outline-[#FF7D29] lg:w-2/3' placeholder='বই এর নাম অথবা লেখকের নাম দিয়ে সার্চ করুন' type="text" />
+            </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -44,7 +67,14 @@ const Table = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            data?.books?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 === 0 && 'bg-gray-100'} text-center`}>
+                            searchValue && searchedBooks?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 === 0 && 'bg-gray-100'} text-center`}>
+                                <th>{book?.bookIdentityNo}</th>
+                                <td>{book?.bookName}</td>
+                                <td>{book?.author}</td>
+                            </tr>)
+                        }
+                        {
+                            !searchValue && data?.books?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 === 0 && 'bg-gray-100'} text-center`}>
                                 <th>{book?.bookIdentityNo}</th>
                                 <td>{book?.bookName}</td>
                                 <td>{book?.author}</td>
@@ -54,8 +84,8 @@ const Table = () => {
                 </table>
             </div>
             <div className='w-full flex justify-center items-center gap-9 my-6'>
-                <button disabled ={currentPage <= 1} onClick={handlePrevPage} className='btn'>Prev</button>
-                <button disabled = {totalPage === currentPage} onClick={handleNextPage} className='btn'>Next</button>
+                <button disabled={currentPage <= 1} onClick={handlePrevPage} className='btn'>Prev</button>
+                <button disabled={totalPage === currentPage} onClick={handleNextPage} className='btn'>Next</button>
             </div>
         </div>
     );

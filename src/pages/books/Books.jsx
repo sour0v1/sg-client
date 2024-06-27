@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import './Books.css'
 import Table from '../../components/Table';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const Books = () => {
+    const axiosPublic = useAxiosPublic();
+    
     return (
         <div className='max-w-5xl mx-auto px-6 lg:px-0'>
             <div className='w-full'>
@@ -31,9 +35,6 @@ const Books = () => {
                     <NavLink to={'category/adventure'}>রহস্য, গোয়েন্দা, ভৌতিক, থ্রিলার ও অ্যাডভেঞ্চার</NavLink>
                     <NavLink to={'category/motivation'}>আত্ম-উন্নয়ন, মোটিভেশনাল ও মেডিটেশন</NavLink>
                     <NavLink to={'category/math'}>গণিত, বিজ্ঞান ও প্রযুক্তি</NavLink>
-                </div>
-                <div className='w-full text-center'>
-                    <input className='py-3 px-3 bg-[#FF7D29] bg-opacity-10 my-6 w-full rounded-full outline-[#FF7D29] lg:w-2/3' placeholder='বই এর নাম অথবা লেখকের নাম দিয়ে সার্চ করুন' type="text" />
                 </div>
                 {/* books */}
                 <div>
