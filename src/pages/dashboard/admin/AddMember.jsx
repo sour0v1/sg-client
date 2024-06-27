@@ -19,17 +19,22 @@ const AddMember = () => {
         setLoading(true);
         console.log(data)
         // image hosting to imagebb
+        let picture = 'https://i.ibb.co/n1q3y5s/profile-avatar.jpg'
+
         const imageFile = { image: data?.photo[0] }
         console.log(imageFile)
-        const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        console.log(imageRes.data);
+        if (data?.photo[0]) {
+            const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            picture = imageRes?.data?.data?.display_url;
+            console.log(imageRes.data);
+        }
 
         const name = data?.name;
-        const photo = imageRes?.data?.data?.display_url;
+        const photo = picture;
         const occupation = data?.occupation;
         const memberCategory = data?.category;
         const memberInfo = {
@@ -63,8 +68,7 @@ const AddMember = () => {
                 </div> */}
                 <input {...register('name', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নাম' />
                 {errors?.name && <span className='text-red-500 mt-1 inline-block'>নাম আবশ্যক</span>}
-                <input {...register('photo', { required: true })} className='py-3 bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='ছবি' />
-                {errors?.photo && <span className='text-red-500 mt-1 inline-block'>ছবি আবশ্যক</span>}
+                <input {...register('photo', { required: false })} className='py-3 bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='ছবি' />
                 <input {...register('occupation', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='পেশা' />
                 {errors?.occupation && <span className='text-red-500 mt-1 inline-block'>পেশা নির্বাচন করুন</span>}
                 <select {...register('category', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full'>

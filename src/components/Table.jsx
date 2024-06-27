@@ -8,6 +8,7 @@ const Table = () => {
     const axiosPublic = useAxiosPublic();
     const { category } = useParams();
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchValue, setSearchValue] = useState('');
     // const [totalPage, setTotalPage] = useState(1);
     console.log(category);
     // books by category
@@ -32,7 +33,6 @@ const Table = () => {
         }
     }
     // search
-    const [searchValue, setSearchValue] = useState('');
     const handleSearch = async (e) => {
         const search = e.target.value;
         setSearchValue(search);
