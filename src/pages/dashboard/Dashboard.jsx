@@ -15,6 +15,7 @@ const Dashboard = () => {
                     <NavLink to={'admin/add-book'}>Add book</NavLink>
                     <NavLink to={'admin/add-member'}>Add Member</NavLink>
                     <NavLink to={'admin/member-request'}>Member Request</NavLink>
+                    <NavLink to={'/'}>Home</NavLink>
                 </div>
                 <div className='px-9 pb-6 h-full lg:h-screen lg:w-3/4'>
                     <Outlet></Outlet>
