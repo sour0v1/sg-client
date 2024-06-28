@@ -47,16 +47,16 @@ const SignUp = () => {
         }
         console.log(applicantInfo)
 
-        // const res = await axiosSecure.post(`/add-user`, memberInfo)
-        // console.log(res?.data);
-        // if (res?.data.insertedId) {
-        //     Swal.fire({
-        //         title: "Success",
-        //         text: `সফলভাবে অন্তর্ভুক্ত হয়েছে`,
-        //         icon: "success"
-        //     });
-        //     setLoading(false);
-        // }
+        const res = await axiosSecure.post(`/member-application`, applicantInfo)
+        console.log(res?.data);
+        if (res?.data.insertedId) {
+            Swal.fire({
+                title: "Success",
+                text: `সফলভাবে সাবমিট হয়েছে`,
+                icon: "success"
+            });
+            setLoading(false);
+        }
 
 
     }
@@ -113,7 +113,7 @@ const SignUp = () => {
 
                 <div className='flex justify-center items-center gap-3'>
                     <div className='space-y-1 lg:w-2/3'>
-                        <span>মোবাইল</span>
+                        <span>মোবাইল নং</span>
                         <input {...register('mobile', { required: true })} className='py-2 bg-gray-100 outline-none px-3 w-full' type="number" />
                         {errors?.mobile && <span className='text-red-500 mt-1 inline-block'>মোবাইল নম্বর আবশ্যক</span>}
                     </div>

@@ -6,11 +6,12 @@ import Members from "../pages/members/Members";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AdminProfile from "../pages/dashboard/admin/AdminProfile";
 import AddBook from "../pages/dashboard/admin/AddBook";
-import MemberRequest from "../pages/dashboard/admin/MemberRequest";
 import AddMember from "../pages/dashboard/admin/AddMember";
 import Table from "../components/Table";
 import MembersTable from "../pages/members/MembersTable";
 import SignUp from "../pages/signup/SignUp";
+import Applications from "../pages/dashboard/admin/Applications";
+import Application from "../pages/dashboard/Application";
 
 const router = createBrowserRouter([
     {
@@ -61,12 +62,16 @@ const router = createBrowserRouter([
                 element: <AddBook></AddBook>
             },
             {
-                path: 'admin/member-request',
-                element: <MemberRequest></MemberRequest>
+                path: 'admin/applications',
+                element: <Applications></Applications>
             },
             {
                 path: 'admin/add-member',
                 element: <AddMember></AddMember>
+            },
+            {
+                path : 'admin/applications/:id',
+                element : <Application></Application>
             }
         ]
     }

@@ -8,7 +8,7 @@ import './Navbar.css'
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [dropdown, setDropDown] = useState(false);
-    const user = false;
+    const user = true;
 
     return (
         <>
@@ -28,10 +28,10 @@ const Navbar = () => {
                         <NavLink onClick={() => setOpen(false)} to={'/'}>হোম</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/books/category/all'}>সকল বই</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/members/member/executive'}>সদস্যবৃন্দ</NavLink>
+                        <NavLink to={'/sign-up'}>পাঠক সদস্য হোন</NavLink>
                         {
                             !user ?
                                 <>
-                                    <NavLink to={'/sign-up'}>পাঠক সদস্য হোন</NavLink>
                                     <NavLink to={'/login'}>লগ ইন</NavLink>
                                 </> :
                                 <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full hidden lg:block' src="" alt="profile" /></button>

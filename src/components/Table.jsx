@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import TableBody from './TableBody';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../hooks/useAxiosPublic';
 
