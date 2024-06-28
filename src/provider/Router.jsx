@@ -10,6 +10,7 @@ import MemberRequest from "../pages/dashboard/admin/MemberRequest";
 import AddMember from "../pages/dashboard/admin/AddMember";
 import Table from "../components/Table";
 import MembersTable from "../pages/members/MembersTable";
+import SignUp from "../pages/signup/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                     },
                 ]
             },
+            {
+                path : '/sign-up',
+                element : <SignUp></SignUp>
+            }
         ]
     },
 

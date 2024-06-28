@@ -8,7 +8,7 @@ import './Navbar.css'
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [dropdown, setDropDown] = useState(false);
-    const user = true;
+    const user = false;
 
     return (
         <>
@@ -25,14 +25,14 @@ const Navbar = () => {
                 </div>
                 <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300'} lg:static border-r`}>
                     <ul className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-5 h-screen lg:h-auto px-9 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
-                        <NavLink onClick={() => setOpen(false)} to={'/'}>Home</NavLink>
-                        <NavLink onClick={() => setOpen(false)} to={'/books/category/all'}>Books</NavLink>
-                        <NavLink onClick={() => setOpen(false)} to={'/members/member/executive'}>Members</NavLink>
+                        <NavLink onClick={() => setOpen(false)} to={'/'}>হোম</NavLink>
+                        <NavLink onClick={() => setOpen(false)} to={'/books/category/all'}>সকল বই</NavLink>
+                        <NavLink onClick={() => setOpen(false)} to={'/members/member/executive'}>সদস্যবৃন্দ</NavLink>
                         {
                             !user ?
                                 <>
-                                    <NavLink to={'/registration'}>Become a Member</NavLink>
-                                    <NavLink to={'/login'}>Log In</NavLink>
+                                    <NavLink to={'/sign-up'}>পাঠক সদস্য হোন</NavLink>
+                                    <NavLink to={'/login'}>লগ ইন</NavLink>
                                 </> :
                                 <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full hidden lg:block' src="" alt="profile" /></button>
                         }
