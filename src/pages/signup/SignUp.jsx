@@ -39,11 +39,12 @@ const SignUp = () => {
         const permanentAddress = data?.permanentAddress;
         const mobile = data?.mobile;
         const bloodGroup = data?.bloodGroup || ' ';
+        const occupation = data?.occupation;
         const referenceName = data?.referenceName;
         const referencePhone = data?.referencePhone || ' ';
 
         const applicantInfo = {
-           name, photo, fatherName, motherName, presentAddress, permanentAddress, mobile, bloodGroup, referenceName, referencePhone
+            name, photo, fatherName, motherName, presentAddress, permanentAddress, mobile, bloodGroup, occupation, referenceName, referencePhone
         }
         console.log(applicantInfo)
 
@@ -61,12 +62,25 @@ const SignUp = () => {
 
     }
     if (loading) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-full'>
-            <span className="loading loading-bars loading-lg"></span>
+        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+            <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
         </div>
     }
     return (
         <div className='max-w-5xl mx-auto'>
+            {/* modal */}
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box text-center">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 className="font-bold text-lg">শর্তাবলী</h3>
+                    <p className="py-4">১। শর্তাবলী ১</p>
+                    <p className="py-4">২। শর্তাবলী ২</p>
+                    <p className="py-4">৩। শর্তাবলী ৩</p>
+                </div>
+            </dialog>
             <form onSubmit={handleSubmit(onSubmit)} className='lg:w-2/3 shadow-lg p-6 space-y-3 mx-auto'>
                 <div className='text-center space-y-2 border-b-2 py-4 border-black  border-opacity-80'>
                     <h2 className='text-xl font-bold'>স্বপ্নাশ্রয় গ্রন্থাগার</h2>
@@ -134,10 +148,14 @@ const SignUp = () => {
                             <span className='text-red-500 mt-1 hidden'>রক্তের গ্রুপ আবশ্যক</span>}
                     </div>
                 </div>
-
+                <div className='space-y-1'>
+                    <span>পেশা</span>
+                    <input {...register('occupation', { required: false })} className='py-2 bg-gray-100 outline-none px-3 w-full' type="text" />
+                    {errors?.occupation && <span className='text-red-500 mt-1 inline-block'>পেশা আবশ্যক</span>}
+                </div>
                 <div className='space-y-1'>
                     <span>নিশ্চয়তাদানকারীর নাম</span>
-                    <input {...register('referenceName', { required: true })} className='py-2 bg-gray-100 outline-none px-3 w-full' type="text" />
+                    <input {...register('referenceName', { required: false })} className='py-2 bg-gray-100 outline-none px-3 w-full' type="text" />
                     {errors?.referenceName && <span className='text-red-500 mt-1 inline-block'>নিশ্চয়তাদানকারীর নাম আবশ্যক</span>}
                 </div>
 
@@ -149,21 +167,9 @@ const SignUp = () => {
                 <div className='py-6'>
                     আমি এই মর্মে অঙ্গীকার করছি যে, উপরিউক্ত তথ্যাবলি সঠিক এবং আমি স্বপ্নাশ্রয় গ্রন্থাগারের <Link onClick={() => document.getElementById('my_modal_3').showModal()} className='underline'>শর্তাবলী</Link> মেনে গ্রন্থাগার থেকে বই নিতে আগ্রহী। নির্ধারিত সময়ে বই ফেরত না দিলে, বই কাঁটাছেড়া করলে বইয়ের সমমূল্য দিতে বাধ্য থাকিব।
 
-                    <dialog id="my_modal_3" className="modal">
-                        <div className="modal-box text-center">
-                            <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            </form>
-                            <h3 className="font-bold text-lg">শর্তাবলী</h3>
-                            <p className="py-4">১। শর্তাবলী ১</p>
-                            <p className="py-4">২। শর্তাবলী ২</p>
-                            <p className="py-4">৩। শর্তাবলী ৩</p>
-                        </div>
-                    </dialog>
                 </div>
 
-                <input className='py-3 bg-[#0D9276] bg-opacity-30 opacity-80 hover:bg-opacity-80 hover:text-white hover:opacity-100 font-medium outline-none px-3 w-full' type="submit" value={'Submit'} />
+                <input className='py-3 bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 text-white font-medium outline-none px-3 w-full' type="submit" value={'Submit'} />
 
             </form>
             {/* <div onClick={() => reset()} className='lg:w-2/3 text-center my-3 mx-auto'>

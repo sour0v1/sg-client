@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Applications = () => {
     const axiosPublic = useAxiosPublic();
     const [currentPage, setCurrentPage] = useState(1);
-    const { data: applications } = useQuery({
+    const { data: applications, isPending } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/get-applications?page=${currentPage}&limit=10`)
@@ -25,6 +25,11 @@ const Applications = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+    }
+    if (isPending) {
+        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+            <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
+        </div>
     }
     return (
         <div>
@@ -45,7 +50,7 @@ const Applications = () => {
                         {
                             applications?.result?.map((application, index) =>
                                 <tr key={index}>
-                                    
+
                                     <th>{index + 1}</th>
                                     <td>{application?.name}</td>
                                     <td><img className='w-24 h-24' src={application?.photo} alt="photo" /></td>

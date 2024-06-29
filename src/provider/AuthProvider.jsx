@@ -7,6 +7,8 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    
+
     const authInfo = {
         user,
         loading,

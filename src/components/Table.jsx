@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../hooks/useAxiosPublic';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Table = () => {
     const axiosPublic = useAxiosPublic();
     const { category } = useParams();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchValue, setSearchValue] = useState('');
+    const {loading, setLoading} = useContext(AuthContext);
     // const [totalPage, setTotalPage] = useState(1);
     console.log(category);
     // books by category
-    const { data } = useQuery({
+    const { data, isPending } = useQuery({
         queryKey: ['books', category, currentPage],
         queryFn: async () => {
             const res = await axiosPublic.get(`/category/books?category=${category}&page=${currentPage}&limit=10`)
@@ -38,7 +40,7 @@ const Table = () => {
     }
     console.log(searchValue);
     // books by search
-    const { data: searchedBooks } = useQuery({
+    const { data: searchedBooks, isPending : isLoading } = useQuery({
         queryKey: ['searchedBooks', searchValue],
         queryFn: async () => {
             const res = await axiosPublic(`/search-books?searchValue=${searchValue}`)
@@ -46,8 +48,14 @@ const Table = () => {
         },
         enabled: !!searchValue
     })
-    console.log('searched books - ',searchedBooks)
+    console.log('searched books - ', searchedBooks)
     console.log('category books -', data?.books)
+
+    if (isPending) {
+        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+            <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
+        </div>
+    }
     return (
         <div>
             <div className='w-full text-center'>
