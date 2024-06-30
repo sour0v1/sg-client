@@ -4,11 +4,12 @@ import { HiMenu } from 'react-icons/hi';
 import { RxCross1 } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css'
+import { IoCloseOutline } from 'react-icons/io5';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [dropdown, setDropDown] = useState(false);
-    const user = true;
+    const user = false;
 
     return (
         <>
@@ -28,11 +29,12 @@ const Navbar = () => {
                         <NavLink onClick={() => setOpen(false)} to={'/'}>হোম</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/books/category/all'}>সকল বই</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/members/member/executive'}>সদস্যবৃন্দ</NavLink>
-                        <NavLink to={'/sign-up'}>পাঠক সদস্য হোন</NavLink>
+                        <NavLink to={'/become-member'}>পাঠক সদস্য হোন</NavLink>
                         {
                             !user ?
                                 <>
                                     <NavLink to={'/login'}>লগ ইন</NavLink>
+                                    {/* <NavLink to={'/registration'}>রেজিস্ট্রেশন</NavLink> */}
                                 </> :
                                 <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full hidden lg:block' src="" alt="profile" /></button>
                         }
@@ -49,10 +51,12 @@ const Navbar = () => {
                     </h2>
                 </div>
             </div>
-            <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-4 w-fit absolute top-24 right-0 z-20 ${dropdown ? 'transform duration-300' : 'hidden'} border mr-6`}>
+            <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-3 w-fit absolute top-24 right-0 z-20 ${dropdown ? 'transform duration-300' : 'hidden'} border mr-6`}>
                 <h2 className='font-medium'>Name</h2>
-                <NavLink to={'/dashboard'}>Dashboard</NavLink>
-                <button className='text-left'>Log Out</button>
+                <NavLink to={'dashboard/admin/profile'} className={'hover:underline'}>Dashboard</NavLink>
+                <button onClick={() => setDropDown(!dropdown)} className='text-left hover:underline'>Log Out</button>
+                <button onClick={() => setDropDown(!dropdown)} className='text-xl border w-fit p-1 border-black border-opacity-70'><IoCloseOutline /></button>
+
             </div>
         </>
     );

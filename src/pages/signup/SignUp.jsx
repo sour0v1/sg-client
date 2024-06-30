@@ -172,6 +172,7 @@ const SignUp = () => {
                 <input className='py-3 bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 text-white font-medium outline-none px-3 w-full' type="submit" value={'Submit'} />
 
             </form>
+            
             {/* <div onClick={() => reset()} className='lg:w-2/3 text-center my-3 mx-auto'>
                 <button className='py-3 px-4 bg-gray-300'>Reset</button>
             </div> */}

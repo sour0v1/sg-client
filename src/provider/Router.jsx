@@ -12,6 +12,8 @@ import MembersTable from "../pages/members/MembersTable";
 import SignUp from "../pages/signup/SignUp";
 import Applications from "../pages/dashboard/admin/Applications";
 import Application from "../pages/dashboard/Application";
+import Registration from "../pages/registration/Registration";
+import Login from "../pages/login/Login";
 
 const router = createBrowserRouter([
     {
@@ -43,9 +45,13 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                path : '/sign-up',
-                element : <SignUp></SignUp>
-            }
+                path: '/become-member',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/registration',
+                element: <Registration></Registration>
+            },
         ]
     },
 
@@ -70,10 +76,14 @@ const router = createBrowserRouter([
                 element: <AddMember></AddMember>
             },
             {
-                path : 'admin/applications/:id',
-                element : <Application></Application>
+                path: 'admin/applications/:id',
+                element: <Application></Application>
             }
         ]
+    },
+    {
+        path: 'login',
+        element: <Login></Login>
     }
 ])
 
