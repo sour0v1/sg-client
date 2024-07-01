@@ -32,9 +32,9 @@ const Application = () => {
             title: "আপনি কি নিশ্চিত?",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#0D9276",
             cancelButtonColor: "#d33",
-            confirmButtonText: "হ্যাঁ, নিশ্চিত"
+            confirmButtonText: "হ্যাঁ, নিশ্চিত",
         }).then(async (result) => {
             if (result.isConfirmed) {
                 setLoading(true);
@@ -43,7 +43,8 @@ const Application = () => {
                     Swal.fire({
                         title: "সফল",
                         text: `${application?.name} পাঠক সদস্য হিসেবে অন্তর্ভুক্ত হয়েছে`,
-                        icon: "success"
+                        icon: "success",
+                        confirmButtonColor : '#0D9276'
                     });
                     setLoading(false);
                 }

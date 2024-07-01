@@ -47,7 +47,8 @@ const AddMember = () => {
             Swal.fire({
                 title: "Success",
                 text: `সফলভাবে অন্তর্ভুক্ত হয়েছে`,
-                icon: "success"
+                icon: "success",
+                confirmButtonColor : '#0D9276'
             });
             setLoading(false);
         }

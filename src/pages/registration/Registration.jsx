@@ -9,11 +9,12 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../firebase.config';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Registration = () => {
     const { user, loading, setLoading, createUserWithEmail } = useContext(AuthContext);
     const navigate = useNavigate();
-    const axiosPublic = 
+    const axiosPublic = useAxiosPublic();
     console.log(user)
     const [open, setOpen] = useState(false);
     const { signInWithEmail } = useContext(AuthContext);
@@ -41,6 +42,11 @@ const Registration = () => {
         const photo = imageRes?.data?.data?.display_url
         console.log(photo)
         const name = data?.name
+        const userInfo = {
+            name,
+            email: data?.email,
+            role: 'user'
+        }
 
         createUserWithEmail(data?.email, data?.password)
             .then((result) => {
@@ -50,15 +56,19 @@ const Registration = () => {
                         displayName: name,
                         photoURL: photo
                     })
-                        .then(() => {
-                            // here
-                            setLoading(false);
+                        .then(async () => {
                             navigate('/')
                             Swal.fire({
                                 title: "Success",
                                 text: "Registered successfully!",
-                                icon: "success"
+                                icon: "success",
+                                confirmButtonColor: '#0D9276'
                             });
+                            setLoading(false);
+                            // here
+                            const res = await axiosPublic.post('/user', userInfo)
+                            console.log(res?.data);
+
                         })
                         .catch(error => {
                             console.log(error);
@@ -105,6 +115,7 @@ const Registration = () => {
                     <span onClick={() => setOpen(!open)} className='absolute top-3 right-4'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
                 </div>
                 <input className='bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="Register" />
+                <p>Already registered? <Link className='text-[#0D9276] underline' to={'/login'}>Log In</Link></p>
             </form>
         </div>
     );

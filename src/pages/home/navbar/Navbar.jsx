@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import logo from '../../../assets/images/sg-logo.jpg'
 import { HiMenu } from 'react-icons/hi';
 import { RxCross1 } from 'react-icons/rx';
@@ -8,13 +8,19 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.config';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useRule from '../../../hooks/useRule';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [dropdown, setDropDown] = useState(false);
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
     // const user = false;
+    const userRole = useRule();
+    console.log('rule -', userRole)
 
     // log out
     const handleLogOut = () => {
@@ -67,8 +73,8 @@ const Navbar = () => {
             </div>
             <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-3 w-fit absolute top-24 right-0 z-20 ${dropdown ? 'transform duration-300' : 'hidden'} border mr-6`}>
                 <h2 className='font-medium'>{user?.displayName}</h2>
-                <NavLink to={'dashboard/admin/profile'} className={'hover:underline'}>Dashboard</NavLink>
-                <button onClick={() => {setDropDown(!dropdown); handleLogOut()}} className='text-left hover:underline'>Log Out</button>
+                <NavLink to={`${userRole === 'admin' ? 'dashboard/admin/profile' : 'dashboard/user/profile'}`} className={'hover:underline'}>Dashboard</NavLink>
+                <button onClick={() => { setDropDown(!dropdown); handleLogOut() }} className='text-left hover:underline'>Log Out</button>
                 <button onClick={() => setDropDown(!dropdown)} className='text-xl border w-fit p-1 border-black border-opacity-70'><IoCloseOutline /></button>
 
             </div>

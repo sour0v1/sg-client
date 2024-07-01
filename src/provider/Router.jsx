@@ -14,6 +14,7 @@ import Applications from "../pages/dashboard/admin/Applications";
 import Application from "../pages/dashboard/Application";
 import Registration from "../pages/registration/Registration";
 import Login from "../pages/login/Login";
+import UserProfile from "../pages/dashboard/user/UserProfile";
 
 const router = createBrowserRouter([
     {
@@ -48,14 +49,23 @@ const router = createBrowserRouter([
                 path: '/become-member',
                 element: <SignUp></SignUp>
             },
-            
+
         ]
+    },
+    {
+        path: 'login',
+        element: <Login></Login>
+    },
+    {
+        path: '/registration',
+        element: <Registration></Registration>
     },
 
     {
         path: '/dashboard',
         element: <Dashboard></Dashboard>,
         children: [
+            // admin routes
             {
                 path: 'admin/profile',
                 element: <AdminProfile></AdminProfile>
@@ -75,16 +85,13 @@ const router = createBrowserRouter([
             {
                 path: 'admin/applications/:id',
                 element: <Application></Application>
+            },
+            // user dashboard
+            {
+                path: 'user/profile',
+                element : <UserProfile></UserProfile>
             }
         ]
-    },
-    {
-        path: 'login',
-        element: <Login></Login>
-    },
-    {
-        path: '/registration',
-        element: <Registration></Registration>
     },
 ])
 

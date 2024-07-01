@@ -54,7 +54,8 @@ const SignUp = () => {
             Swal.fire({
                 title: "Success",
                 text: `সফলভাবে সাবমিট হয়েছে`,
-                icon: "success"
+                icon: "success",
+                confirmButtonColor : '#0D9276'
             });
             setLoading(false);
         }

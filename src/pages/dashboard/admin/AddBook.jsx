@@ -32,7 +32,8 @@ const AddBook = () => {
             Swal.fire({
                 title: "Success",
                 text: `" ${bookName} " সফলভাবে অন্তর্ভুক্ত হয়েছে`,
-                icon: "success"
+                icon: "success",
+                confirmButtonColor : '#0D9276'
             });
             setLoading(false);
         }
@@ -40,7 +41,8 @@ const AddBook = () => {
             Swal.fire({
                 title: "দুঃখিত",
                 text: `" ${bookName} " ইতোমধ্যে অন্তর্ভুক্ত করা হয়েছে`,
-                icon: "warning"
+                icon: "warning",
+                confirmButtonColor : '#0D9276'
             });
             setLoading(false);
         }
