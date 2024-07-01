@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
-console.log(import.meta.env.VITE_IMAGE_API_KEY)
+// console.log(import.meta.env.VITE_IMAGE_API_KEY)
 const AddMember = () => {
     const { loading, setLoading } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
@@ -17,12 +17,12 @@ const AddMember = () => {
     } = useForm()
     const onSubmit = async (data) => {
         setLoading(true);
-        console.log(data)
+        // console.log(data)
         // image hosting to imagebb
         let picture = 'https://i.ibb.co/n1q3y5s/profile-avatar.jpg'
 
         const imageFile = { image: data?.photo[0] }
-        console.log(imageFile)
+        // console.log(imageFile)
         if (data?.photo[0]) {
             const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
                 headers: {
@@ -30,7 +30,7 @@ const AddMember = () => {
                 }
             })
             picture = imageRes?.data?.data?.display_url;
-            console.log(imageRes.data);
+            // console.log(imageRes.data);
         }
 
         const name = data?.name;
@@ -42,7 +42,7 @@ const AddMember = () => {
         }
 
         const res = await axiosSecure.post(`/add-member`, memberInfo)
-        console.log(res?.data);
+        // console.log(res?.data);
         if (res?.data.insertedId) {
             Swal.fire({
                 title: "Success",

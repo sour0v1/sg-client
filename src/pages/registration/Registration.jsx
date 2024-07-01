@@ -15,7 +15,7 @@ const Registration = () => {
     const { user, loading, setLoading, createUserWithEmail } = useContext(AuthContext);
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
-    console.log(user)
+    // console.log(user)
     const [open, setOpen] = useState(false);
     const { signInWithEmail } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -29,10 +29,10 @@ const Registration = () => {
 
     const onSubmit = async (data) => {
         setLoading(true);
-        console.log(data);
+        // console.log(data);
 
         const imageFile = { image: data?.photo[0] }
-        console.log(imageFile)
+        // console.log(imageFile)
 
         const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
             headers: {
@@ -40,7 +40,7 @@ const Registration = () => {
             }
         })
         const photo = imageRes?.data?.data?.display_url
-        console.log(photo)
+        // console.log(photo)
         const name = data?.name
         const userInfo = {
             name,
@@ -50,7 +50,7 @@ const Registration = () => {
 
         createUserWithEmail(data?.email, data?.password)
             .then((result) => {
-                console.log(result?.user)
+                // console.log(result?.user)
                 if (result?.user) {
                     updateProfile(auth.currentUser, {
                         displayName: name,
@@ -60,28 +60,28 @@ const Registration = () => {
                             navigate('/')
                             Swal.fire({
                                 title: "Success",
-                                text: "Registered successfully!",
+                                text: "Logged in successfully!",
                                 icon: "success",
                                 confirmButtonColor: '#0D9276'
                             });
                             setLoading(false);
                             // here
                             const res = await axiosPublic.post('/user', userInfo)
-                            console.log(res?.data);
+                            // console.log(res?.data);
 
                         })
                         .catch(error => {
-                            console.log(error);
+                            // console.log(error);
                             setLoading(false);
                         })
                 }
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
                 setLoading(false);
             })
     }
-    console.log(errors)
+    // console.log(errors)
     if (loading) {
         return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
@@ -111,7 +111,7 @@ const Registration = () => {
                     {errors?.email && <span className='text-red-500'>Email required</span>}
                 </div>
                 <div className='relative w-full'>
-                    <input {...register('password', { required: true, pattern : /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='Password' />
+                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='Password' />
                     {errors?.password?.type === 'required' && <span className='text-red-500'>Password required</span>}
                     {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must be at least 6 characters long</span>}
                     <span onClick={() => setOpen(!open)} className='absolute top-3 right-4'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>

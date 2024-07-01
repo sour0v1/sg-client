@@ -20,7 +20,7 @@ const MembersTable = () => {
     })
     const totalPage = members?.totalPage;
 
-    console.log(members?.result)
+    // console.log(members?.result)
     const handleNextPage = () => {
         if (currentPage < totalPage) {
             setCurrentPage(currentPage + 1);
@@ -32,7 +32,7 @@ const MembersTable = () => {
         }
     }
     if (isPending || loading) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+        return <div className='lg:w-2/3 m-auto my-9 flex flex-col justify-center items-center gap-1 h-full'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
         </div>
     }

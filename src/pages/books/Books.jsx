@@ -4,12 +4,13 @@ import './Books.css'
 import Table from '../../components/Table';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const Books = () => {
     const axiosPublic = useAxiosPublic();
     
     return (
-        <div className='max-w-5xl mx-auto px-6 lg:px-0'>
+        <div className='max-w-5xl mx-auto px-6 lg:px-0 mt-28'>
             <div className='w-full'>
                 {/* category */}
                 <h2 className='text-xl font-bold text-center text-[#0D9276] my-6'>-- ক্যাটেগরি --</h2>
@@ -38,6 +39,7 @@ const Books = () => {
                 </div>
                 {/* books */}
                 <div>
+                    <ScrollToTop></ScrollToTop>
                     <Outlet></Outlet>
                 </div>
             </div>

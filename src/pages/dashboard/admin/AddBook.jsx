@@ -18,7 +18,7 @@ const AddBook = () => {
 
     const onSubmit = async (data) => {
         setLoading(true);
-        console.log(data);
+        // console.log(data);
         const bookIdentityNo = data.identity;
         const bookName = data.book;
         const author = data.author;
@@ -27,7 +27,7 @@ const AddBook = () => {
             bookIdentityNo, bookName, author, bookCategory
         }
         const res = await axiosSecure.post(`/add-book`, bookInfo)
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertedId) {
             Swal.fire({
                 title: "Success",
@@ -61,7 +61,7 @@ const AddBook = () => {
                 <input {...register('identity', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নিবন্ধন নং' />
                 {errors.identity?.type === 'required' && <span className='text-red-500 mt-1 block'>নিবন্ধন নং আবশ্যক</span>}
                 {errors.identity?.type === 'pattern' && <span className='text-red-500 mt-1 block'>নিবন্ধন নং হিসেবে সংখ্যা আবশ্যক</span>}
-                {console.log(errors)}
+                {/* {console.log(errors)} */}
                 <input {...register('book', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='বইয়ের নাম' />
                 {errors.book?.type === 'required' && <span className='text-red-500 mt-1 block'>বইয়ের নাম আবশ্যক</span>}
                 <input {...register('author', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='লেখকের নাম' />

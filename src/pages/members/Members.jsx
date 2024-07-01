@@ -4,7 +4,7 @@ import './Members.css'
 
 const Members = () => {
     return (
-        <div>
+        <div className='mt-28'>
             <div className='max-w-5xl mx-auto px-6 lg:px-0'>
                 <div className='members bg-[#FF7D29] bg-opacity-10 py-3 px-3 flex flex-wrap justify-center items-center gap-4 lg:gap-9 my-6'>
                     <NavLink to={'member/executive'}>কার্যকরী সদস্য</NavLink>

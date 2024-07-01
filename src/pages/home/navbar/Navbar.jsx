@@ -11,6 +11,7 @@ import auth from '../../../firebase.config';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useRule from '../../../hooks/useRule';
+import useScroll from '../../../hooks/useScroll';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -18,22 +19,24 @@ const Navbar = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
+    const scrollDirection = useScroll();
+    // console.log(scrollDirection)
     // const user = false;
     const userRole = useRule();
-    console.log('rule -', userRole)
+    // console.log('rule -', userRole)
 
     // log out
     const handleLogOut = () => {
         signOut(auth)
             .then(() => {
-                console.log('logout successfully');
+                // console.log('logout successfully');
                 navigate('/');
             })
     }
 
     return (
         <>
-            <div className='flex justify-between items-center gap-2 w-full px-6 lg:px-6 bg-[#FFFBF5] py-3 shadow-md'>
+            <div className={`fixed top-0 left-0 right-0 z-20 flex justify-between items-center gap-2 w-full px-6 lg:px-6 bg-[#FFFBF5] py-3 shadow-md ${scrollDirection === 'down' ? '-translate-y-full transition-transform duration-300' : '-translate-y-0 transition-transform duration-300'}`}>
                 <div className='flex justify-center items-center gap-2'>
                     <div>
                         <img className='w-16 h-16 rounded-full border-2' src={logo} alt="logo" />

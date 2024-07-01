@@ -14,7 +14,7 @@ const Applications = () => {
         }
     })
 
-    console.log(applications?.result)
+    // console.log(applications?.result)
     const totalPage = applications?.totalPage;
     const handleNextPage = () => {
         if (currentPage < totalPage) {

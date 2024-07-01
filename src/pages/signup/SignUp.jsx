@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
-console.log(import.meta.env.VITE_IMAGE_API_KEY)
+// console.log(import.meta.env.VITE_IMAGE_API_KEY)
 const SignUp = () => {
     const { loading, setLoading } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
@@ -16,20 +16,20 @@ const SignUp = () => {
         reset,
         formState: { errors },
     } = useForm()
-    console.log(errors)
+    // console.log(errors)
     const onSubmit = async (data) => {
         setLoading(true);
-        console.log(data)
+        // console.log(data)
         // image hosting to imagebb
         const imageFile = { image: data?.photo[0] }
-        console.log(imageFile)
+        // console.log(imageFile)
 
         const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
-        console.log(imageRes?.data)
+        // console.log(imageRes?.data)
 
         const name = data?.name;
         const photo = imageRes?.data?.data?.display_url
@@ -46,10 +46,10 @@ const SignUp = () => {
         const applicantInfo = {
             name, photo, fatherName, motherName, presentAddress, permanentAddress, mobile, bloodGroup, occupation, referenceName, referencePhone
         }
-        console.log(applicantInfo)
+        // console.log(applicantInfo)
 
         const res = await axiosSecure.post(`/member-application`, applicantInfo)
-        console.log(res?.data);
+        // console.log(res?.data);
         if (res?.data.insertedId) {
             Swal.fire({
                 title: "Success",
@@ -68,7 +68,7 @@ const SignUp = () => {
         </div>
     }
     return (
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-5xl mx-auto mt-24'>
             {/* modal */}
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box text-center">

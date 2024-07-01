@@ -11,7 +11,7 @@ const Table = () => {
     const [searchValue, setSearchValue] = useState('');
     const {loading, setLoading} = useContext(AuthContext);
     // const [totalPage, setTotalPage] = useState(1);
-    console.log(category);
+    // console.log(category);
     // books by category
     const { data, isPending } = useQuery({
         queryKey: ['books', category, currentPage],
@@ -38,7 +38,7 @@ const Table = () => {
         const search = e.target.value;
         setSearchValue(search);
     }
-    console.log(searchValue);
+    // console.log(searchValue);
     // books by search
     const { data: searchedBooks, isPending : isLoading } = useQuery({
         queryKey: ['searchedBooks', searchValue],
@@ -48,11 +48,11 @@ const Table = () => {
         },
         enabled: !!searchValue
     })
-    console.log('searched books - ', searchedBooks)
-    console.log('category books -', data?.books)
+    // console.log('searched books - ', searchedBooks)
+    // console.log('category books -', data?.books)
 
     if (isPending) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+        return <div className='lg:w-2/3 m-auto my-9 flex flex-col justify-center items-center gap-1 h-full'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
         </div>
     }

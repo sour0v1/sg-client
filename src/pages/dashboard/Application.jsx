@@ -17,7 +17,7 @@ const Application = () => {
             return res?.data;
         }
     })
-    console.log(application)
+    // console.log(application)
 
     const memberInfo = {
         name: application?.name,

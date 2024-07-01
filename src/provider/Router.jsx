@@ -15,6 +15,7 @@ import Application from "../pages/dashboard/Application";
 import Registration from "../pages/registration/Registration";
 import Login from "../pages/login/Login";
 import UserProfile from "../pages/dashboard/user/UserProfile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
 
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             // admin routes
             {

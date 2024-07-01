@@ -12,13 +12,13 @@ import auth from '../../firebase.config';
 const Login = () => {
     const { user, loading, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(user)
+    // console.log(user)
     const [open, setOpen] = useState(false);
     const { signInWithEmail } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
     const [emailError, setEmailError] = useState(null);
     const [loading1, setLoading1] = useState(null);
-    console.log(errorMessage);
+    // console.log(errorMessage);
     const {
         register,
         handleSubmit,
@@ -29,11 +29,11 @@ const Login = () => {
 
     const onSubmit = (data) => {
         setLoading(true);
-        console.log(data);
+        // console.log(data);
         setErrorMessage(' ');
         signInWithEmail(data?.email, data?.password)
             .then((result) => {
-                console.log(result?.user)
+                // console.log(result?.user)
                 setLoading(false);
                 navigate('/')
                 Swal.fire({
@@ -44,7 +44,7 @@ const Login = () => {
                 });
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
                 if (error?.message.includes('auth/invalid-credential')) {
                     setLoading(false);
                     setErrorMessage('Invalid  user or wrong password');
@@ -62,7 +62,7 @@ const Login = () => {
         setLoading1(true);
         const form = event.target;
         const email = form.email.value;
-        console.log(email);
+        // console.log(email);
 
         sendPasswordResetEmail(auth, email)
             .then(() => {
