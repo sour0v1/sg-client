@@ -70,8 +70,8 @@ const AddMember = () => {
                 <input {...register('name', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নাম' />
                 {errors?.name && <span className='text-red-500 mt-1 inline-block'>নাম আবশ্যক</span>}
                 <input {...register('photo', { required: false })} className='py-3 bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='ছবি' />
-                <input {...register('occupation', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='পেশা' />
-                {errors?.occupation && <span className='text-red-500 mt-1 inline-block'>পেশা নির্বাচন করুন</span>}
+                <input {...register('occupation', { required: false })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='পদবি' />
+                {errors?.occupation && <span className='text-red-500 mt-1 inline-block'>পদবি নির্বাচন করুন</span>}
                 <select {...register('category', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full'>
                     <option className='bg-gray-200' value="">ক্যাটেগরি</option>
                     <option value={'executive'}>কার্যকরী সদস্য</option>

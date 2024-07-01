@@ -58,7 +58,7 @@ const AddBook = () => {
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='lg:w-2/3 shadow-lg p-6 space-y-3 mx-auto'>
 
-                <input {...register('identity', { required: true, pattern: /^[0-9]+$/ })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নিবন্ধন নং' />
+                <input {...register('identity', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নিবন্ধন নং' />
                 {errors.identity?.type === 'required' && <span className='text-red-500 mt-1 block'>নিবন্ধন নং আবশ্যক</span>}
                 {errors.identity?.type === 'pattern' && <span className='text-red-500 mt-1 block'>নিবন্ধন নং হিসেবে সংখ্যা আবশ্যক</span>}
                 {console.log(errors)}

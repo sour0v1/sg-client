@@ -81,6 +81,7 @@ const Registration = () => {
                 setLoading(false);
             })
     }
+    console.log(errors)
     if (loading) {
         return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
@@ -110,8 +111,9 @@ const Registration = () => {
                     {errors?.email && <span className='text-red-500'>Email required</span>}
                 </div>
                 <div className='relative w-full'>
-                    <input {...register('password', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='Password' />
-                    {errors?.password && <span className='text-red-500'>Password required</span>}
+                    <input {...register('password', { required: true, pattern : /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='Password' />
+                    {errors?.password?.type === 'required' && <span className='text-red-500'>Password required</span>}
+                    {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must be at least 6 characters long</span>}
                     <span onClick={() => setOpen(!open)} className='absolute top-3 right-4'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
                 </div>
                 <input className='bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="Register" />
