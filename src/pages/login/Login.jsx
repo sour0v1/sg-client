@@ -14,6 +14,7 @@ const Login = () => {
     const [open, setOpen] = useState(false);
     const { signInWithEmail } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
+    console.log(errorMessage);
     const {
         register,
         handleSubmit,
@@ -25,21 +26,32 @@ const Login = () => {
     const onSubmit = (data) => {
         setLoading(true);
         console.log(data);
+        setErrorMessage(' ');
         signInWithEmail(data?.email, data?.password)
             .then((result) => {
                 console.log(result?.user)
+                setLoading(false);
+                navigate('/')
                 Swal.fire({
                     title: "Success",
                     text: "Logged in successfully!",
                     icon: "success"
-                  });
-                navigate('/dashboard/admin/profile')
-                setLoading(false);
+                });
             })
             .catch(error => {
                 console.log(error)
+                if (error?.message.includes('auth/invalid-credential')) {
+                    setLoading(false);
+                    setErrorMessage('Invalid  user or wrong password');
+                }
+                else if(error?.message.includes('temporarily disabled due to many failed login attempts')){
+                    setLoading(false);
+                    setErrorMessage('Temporarily disabled due to many failed login attempts.Try later');
+                }
+                // setErrorMessage(error?.message);
             })
     }
+    // console.log(errorMessage);
     if (loading) {
         return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
@@ -48,12 +60,15 @@ const Login = () => {
     return (
         <div className='h-screen w-full flex flex-col justify-center items-center'>
             <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 shadow-lg'>
-            <Link to='/'>
-                <div className='btn m-6 w-fit'>
-                    <span><FiArrowLeft /></span>
-                    <span>Back to Home</span>
-                </div>
-            </Link>
+                <Link to='/'>
+                    <div className='btn m-6 w-fit'>
+                        <span><FiArrowLeft /></span>
+                        <span>Back to Home</span>
+                    </div>
+                </Link>
+                {
+                    errorMessage && <h2 className='text-red-500 text-center'>{errorMessage}</h2>
+                }
 
                 <div className='w-full'>
                     <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type="email" placeholder='Email' />

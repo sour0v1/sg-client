@@ -48,10 +48,7 @@ const router = createBrowserRouter([
                 path: '/become-member',
                 element: <SignUp></SignUp>
             },
-            {
-                path: '/registration',
-                element: <Registration></Registration>
-            },
+            
         ]
     },
 
@@ -84,7 +81,11 @@ const router = createBrowserRouter([
     {
         path: 'login',
         element: <Login></Login>
-    }
+    },
+    {
+        path: '/registration',
+        element: <Registration></Registration>
+    },
 ])
 
 export default router;

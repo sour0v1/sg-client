@@ -13,7 +13,7 @@ const AdminProfile = () => {
     }
     return (
         <div>
-            <h1>Admin Profile Page</h1>
+            <h1 className='text-2xl text-[#0D9276] h-screen flex justify-center items-center'>Welcome, back!</h1>
         </div>
     );
 };

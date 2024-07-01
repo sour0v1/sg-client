@@ -1,15 +1,29 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import logo from '../../../assets/images/sg-logo.jpg'
 import { HiMenu } from 'react-icons/hi';
 import { RxCross1 } from 'react-icons/rx';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 import { IoCloseOutline } from 'react-icons/io5';
+import { AuthContext } from '../../../provider/AuthProvider';
+import { signOut } from 'firebase/auth';
+import auth from '../../../firebase.config';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [dropdown, setDropDown] = useState(false);
-    const user = false;
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
+    // const user = false;
+
+    // log out
+    const handleLogOut = () => {
+        signOut(auth)
+            .then(() => {
+                console.log('logout successfully');
+                navigate('/');
+            })
+    }
 
     return (
         <>
@@ -34,9 +48,9 @@ const Navbar = () => {
                             !user ?
                                 <>
                                     <NavLink to={'/login'}>লগ ইন</NavLink>
-                                    {/* <NavLink to={'/registration'}>রেজিস্ট্রেশন</NavLink> */}
+                                    <NavLink to={'/registration'}>রেজিস্ট্রেশন</NavLink>
                                 </> :
-                                <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full hidden lg:block' src="" alt="profile" /></button>
+                                <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full hidden lg:block' src={user?.photoURL} alt="profile" /></button>
                         }
                     </ul>
                 </div>
@@ -52,9 +66,9 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={`bg-[#FFFBF5] p-6 flex flex-col gap-3 w-fit absolute top-24 right-0 z-20 ${dropdown ? 'transform duration-300' : 'hidden'} border mr-6`}>
-                <h2 className='font-medium'>Name</h2>
+                <h2 className='font-medium'>{user?.displayName}</h2>
                 <NavLink to={'dashboard/admin/profile'} className={'hover:underline'}>Dashboard</NavLink>
-                <button onClick={() => setDropDown(!dropdown)} className='text-left hover:underline'>Log Out</button>
+                <button onClick={() => {setDropDown(!dropdown); handleLogOut()}} className='text-left hover:underline'>Log Out</button>
                 <button onClick={() => setDropDown(!dropdown)} className='text-xl border w-fit p-1 border-black border-opacity-70'><IoCloseOutline /></button>
 
             </div>
