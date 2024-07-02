@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
-                <nav className="grid grid-flow-col gap-4">
+                <nav className="flex justify-center items-center flex-wrap gap-4">
                     <Link className='underline' to={'/'}>হোম</Link>
                     <Link className='underline'>আমাদের সম্পর্কে</Link>
                     <Link className='underline' to={'/books/category/all'}>সকল বই</Link>

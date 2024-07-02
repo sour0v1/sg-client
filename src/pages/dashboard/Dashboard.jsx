@@ -43,7 +43,7 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className='px-9 pb-6 lg:h-screen lg:w-3/4'>
+                <div className='px-4 lg:px-9 pb-6 lg:h-screen lg:w-3/4'>
                     <Outlet></Outlet>
                 </div>
             </div >

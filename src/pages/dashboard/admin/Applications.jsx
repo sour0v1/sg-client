@@ -53,7 +53,7 @@ const Applications = () => {
 
                                     <th>{index + 1}</th>
                                     <td>{application?.name}</td>
-                                    <td><img className='w-24 h-24' src={application?.photo} alt="photo" /></td>
+                                    <td><img className='lg:w-24 lg:h-24' src={application?.photo} alt="photo" /></td>
                                     <td>{application?.mobile}</td>
                                     <td className=''><Link to={application?._id} className='btn'>View Application</Link></td>
                                 </tr>

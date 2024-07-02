@@ -62,7 +62,7 @@ const AddMember = () => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)} className='lg:w-2/3 shadow-lg p-6 space-y-3 mx-auto'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-2/3 shadow-lg lg:p-6 space-y-3 mx-auto'>
                 {/* <div className='flex flex-col gap-1'>
                     <label htmlFor=""></label>
                     

@@ -56,7 +56,7 @@ const AddBook = () => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)} className='lg:w-2/3 shadow-lg p-6 space-y-3 mx-auto'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-2/3 shadow-lg lg:p-6 space-y-3 mx-auto'>
 
                 <input {...register('identity', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নিবন্ধন নং' />
                 {errors.identity?.type === 'required' && <span className='text-red-500 mt-1 block'>নিবন্ধন নং আবশ্যক</span>}

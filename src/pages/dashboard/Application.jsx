@@ -58,7 +58,7 @@ const Application = () => {
         </div>
     }
     return (
-        <div className='h-fit lg:w-[600px] mx-auto my-auto relative shadow-lg p-9'>
+        <div className='h-fit w-full lg:w-[600px] mx-auto my-auto relative shadow-lg p-3 lg:p-9'>
             <div className='text-center space-y-2 border-b-2 py-4 border-black  border-opacity-80'>
                 <h2 className='text-xl font-bold '>স্বপ্নাশ্রয় গ্রন্থাগার</h2>
                 <p className=''>স্থাপিত - ১ মে, ২০১১ খ্রি., রাবান, পলাশ, নারসিংদী।</p>

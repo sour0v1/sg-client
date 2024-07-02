@@ -42,7 +42,7 @@ const MembersTable = () => {
                 {
                     members?.result.map((member, idx) =>
                         <div key={idx} className=''>
-                            <img className='h-44 w-full' src={member?.photo} alt="photo" />
+                            <img className='w-full' src={member?.photo} alt="photo" />
                             <div className='bg-[#0D9276] text-white border-t border-t-white p-2 space-y-1'>
                                 <h2 className='font-medium text-center'>{member?.name}</h2>
                                 <p className='text-center text-sm'>{member?.occupation}</p>
