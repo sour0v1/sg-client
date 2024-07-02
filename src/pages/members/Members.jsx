@@ -1,6 +1,7 @@
 
 import { NavLink, Outlet } from 'react-router-dom';
 import './Members.css'
+import ScrollToTop from '../../components/ScrollToTop';
 
 const Members = () => {
     return (
@@ -18,6 +19,7 @@ const Members = () => {
                     <NavLink to={'member/lifetime'}>আজীবন সদস্য</NavLink>
                 </div>
                 <div>
+                    <ScrollToTop></ScrollToTop>
                     <Outlet></Outlet>
                 </div>
             </div>

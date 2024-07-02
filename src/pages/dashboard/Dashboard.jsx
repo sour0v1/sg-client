@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
 import useRule from '../../hooks/useRule';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const Dashboard = () => {
     const { user, loading } = useContext(AuthContext);
@@ -44,6 +45,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className='px-4 lg:px-9 pb-6 lg:h-screen lg:w-3/4'>
+                <ScrollToTop></ScrollToTop>
                     <Outlet></Outlet>
                 </div>
             </div >
