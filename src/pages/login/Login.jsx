@@ -84,7 +84,7 @@ const Login = () => {
         </div>
     }
     return (
-        <div className='h-screen w-full flex flex-col justify-center items-center'>
+        <div className='h-screen w-full flex flex-col justify-center items-center bg-[#0D9276]'>
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
@@ -115,11 +115,11 @@ const Login = () => {
 
                 </div>
             </dialog>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 shadow-lg'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 lg:border'>
                 <Link to='/'>
                     <div className='btn m-6 w-fit'>
-                        <span><FiArrowLeft /></span>
-                        <span>Back to Home</span>
+                        <span className='text-[#0D9276]'><FiArrowLeft /></span>
+                        <span className='text-[#0D9276]'>Back to Home</span>
                     </div>
                 </Link>
                 {
@@ -127,17 +127,17 @@ const Login = () => {
                 }
 
                 <div className='w-full'>
-                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type="email" placeholder='Email' />
-                    {errors?.email && <span className='text-red-500'>Email required</span>}
+                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="email" placeholder='Email' />
+                    {errors?.email && <span className='text-white'>Email required</span>}
                 </div>
                 <div className='relative w-full space-y-1'>
-                    <input {...register('password', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='Password' />
-                    <p onClick={() => { document.getElementById('my_modal_3').showModal(); setEmailError(null) }}><Link className='text-[#0D9276] underline'>Forgot password</Link></p>
-                    {errors?.password && <span className='text-red-500'>Password required</span>}
-                    <span onClick={() => setOpen(!open)} className='absolute top-3 right-4'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
+                    <input {...register('password', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type={!open ? 'password' : 'text'} placeholder='Password' />
+                    {errors?.password && <span className='text-white'>Password required</span>}
+                    <span onClick={() => setOpen(!open)} className='absolute top-[8px] right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
+                    <p onClick={() => { document.getElementById('my_modal_3').showModal(); setEmailError(null) }}><Link className='text-white underline'>Forgot password</Link></p>
                 </div>
-                <input className='bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="Log In" />
-                <p>New here? <Link className='text-[#0D9276] underline' to={'/registration'}>Register</Link></p>
+                <input className='border bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white hover:bg-white hover:text-[#0D9276]' type="submit" value="Log In" />
+                <p className='text-white'>New here? <Link className=' underline' to={'/registration'}>Register</Link></p>
             </form>
         </div>
     );
