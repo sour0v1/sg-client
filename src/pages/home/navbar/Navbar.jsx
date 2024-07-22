@@ -42,13 +42,14 @@ const Navbar = () => {
                         <img className='w-14 h-14 rounded-full border-2' src={logo} alt="logo" />
                     </div>
                     <div className='space-y-1'>
-                        <h2 className='text-xl lg:text-xl font-bold text-[#0D9276]'>স্বপ্নাশ্রয় গ্রন্থাগার</h2>
-                        <p className='text-sm text-[#FF7D29] font-bold'>ছড়াবো আলো, দেখাবো পথ</p>
+                        <h2 className='text-sm lg:text-xl font-bold text-[#0D9276]'>স্বপ্নাশ্রয় গ্রন্থাগার</h2>
+                        <p className='text-xs lg:text-sm text-[#FF7D29] font-bold'>ছড়াবো আলো, দেখাবো পথ</p>
 
                     </div>
                 </div>
-                <div className={`sidebar absolute top-20 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300'} lg:static border-r`}>
-                    <ul className='flex flex-col border border-l-0 lg:border-none border-[#0D9276] lg:flex-row lg:justify-center lg:items-center gap-5 h-screen lg:h-auto px-9 lg:px-0 py-4 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
+                <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300'} lg:static border-r`}>
+                    <ul className='flex flex-col w-full lg:w-auto lg:flex-row lg:justify-center lg:items-center gap-5 h-screen lg:h-auto px-9 lg:px-0 py-6 lg:py-0 bg-[#FFFBF5] text-[#0D9276] z-20 fixed lg:relative'>
+                        <p onClick={() => setOpen(!open)} className='text-2xl lg:text-4xl text-[#0D9276] flex justify-end items-center lg:hidden'><RxCross1 /></p>
                         <NavLink onClick={() => setOpen(false)} to={'/'}>হোম</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/books/category/all'}>সকল বই</NavLink>
                         <NavLink onClick={() => setOpen(false)} to={'/members/member/executive'}>সদস্যবৃন্দ</NavLink>
@@ -67,7 +68,7 @@ const Navbar = () => {
                     {
                         user && <button onClick={() => setDropDown(!dropdown)}><img className='w-12 h-12 border rounded-full' src={user?.photoURL} alt="profile" /></button>
                     }
-                    <h2 onClick={() => setOpen(!open)} className='text-4xl text-[#0D9276]'>
+                    <h2 onClick={() => setOpen(!open)} className='text-2xl lg:text-4xl text-[#0D9276]'>
                         {
                             !open ? <HiMenu /> : <RxCross1 />
                         }

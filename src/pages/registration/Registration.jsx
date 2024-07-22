@@ -89,7 +89,7 @@ const Registration = () => {
     }
     return (
         <div className='h-screen w-full flex flex-col justify-center items-center bg-[#0D9276]'>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 shadow-lg border'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 lg:border'>
                 <Link to='/'>
                     <div className='btn m-6 w-fit'>
                         <span className='text-[#0D9276]'><FiArrowLeft /></span>
