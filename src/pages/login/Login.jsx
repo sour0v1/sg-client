@@ -119,7 +119,7 @@ const Login = () => {
                 <Link to='/'>
                     <div className='btn m-6 w-fit'>
                         <span className='text-[#0D9276]'><FiArrowLeft /></span>
-                        <span className='text-[#0D9276]'>Back to Home</span>
+                        <span className='text-[#0D9276]'>হোমে ফিরে যান</span>
                     </div>
                 </Link>
                 {
@@ -127,17 +127,19 @@ const Login = () => {
                 }
 
                 <div className='w-full'>
-                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="email" placeholder='Email' />
-                    {errors?.email && <span className='text-white'>Email required</span>}
+                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="email" placeholder='ইমেইল' />
+                    {errors?.email && <span className='text-white'>ইমেইল প্রয়োজন</span>}
                 </div>
-                <div className='relative w-full space-y-1'>
-                    <input {...register('password', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type={!open ? 'password' : 'text'} placeholder='Password' />
-                    {errors?.password && <span className='text-white'>Password required</span>}
-                    <span onClick={() => setOpen(!open)} className='absolute top-[8px] right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
-                    <p onClick={() => { document.getElementById('my_modal_3').showModal(); setEmailError(null) }}><Link className='text-white underline'>Forgot password</Link></p>
+                <div className='w-full space-y-3'>
+                    <div className='space-y-3 w-full relative'>
+                        <input {...register('password', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type={!open ? 'password' : 'text'} placeholder='পাসওয়ার্ড' />
+                        <span onClick={() => setOpen(!open)} className='absolute top-0 right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
+                        {errors?.password && <span className='text-white'>পাসওয়ার্ড প্রয়োজন</span>}
+                    </div>
+                    <p className='' onClick={() => { document.getElementById('my_modal_3').showModal(); setEmailError(null) }}><Link className='text-white underline'>পাসওয়ার্ড ভুলে গিয়েছেন?</Link></p>
                 </div>
-                <input className='border bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white hover:bg-white hover:text-[#0D9276]' type="submit" value="Log In" />
-                <p className='text-white'>New here? <Link className=' underline' to={'/registration'}>Register</Link></p>
+                <input className='border bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white hover:bg-white hover:text-[#0D9276]' type="submit" value="লগ ইন" />
+                <p className='text-white'>এখানে নতুন? <Link className=' underline' to={'/registration'}>রেজিস্টার</Link></p>
             </form>
         </div>
     );

@@ -88,36 +88,36 @@ const Registration = () => {
         </div>
     }
     return (
-        <div className='h-screen w-full flex flex-col justify-center items-center'>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 shadow-lg'>
+        <div className='h-screen w-full flex flex-col justify-center items-center bg-[#0D9276]'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 shadow-lg border'>
                 <Link to='/'>
                     <div className='btn m-6 w-fit'>
-                        <span><FiArrowLeft /></span>
-                        <span>Back to Home</span>
+                        <span className='text-[#0D9276]'><FiArrowLeft /></span>
+                        <span className='text-[#0D9276]'>হোমে ফিরে যান</span>
                     </div>
                 </Link>
                 <div className='w-full'>
-                    <input {...register('name', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type="text" placeholder='Your Full Name' />
-                    {errors?.name && <span className='text-red-500'>Name required</span>}
+                    <input {...register('name', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="text" placeholder='নাম' />
+                    {errors?.name && <span className='text-white'>নাম প্রয়োজন</span>}
                 </div>
-                <div className='space-y-1'>
-                    <span>Photo</span>
+                <div className='space-y-1 text-white'>
+                    <span>ছবি</span>
                     <input {...register('photo', { required: true })} className='py-2 bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='Your photo' />
-                    {errors?.photo && <span className='text-red-500 mt-1 inline-block'>Photo required</span>}
+                    {errors?.photo && <span className='text-white mt-1 inline-block'>ছবি প্রয়োজন</span>}
                 </div>
 
                 <div className='w-full'>
-                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type="email" placeholder='Email' />
-                    {errors?.email && <span className='text-red-500'>Email required</span>}
+                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type="email" placeholder='ইমেইল' />
+                    {errors?.email && <span className='text-white'>ইমেইল প্রয়োজন</span>}
                 </div>
                 <div className='relative w-full'>
-                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='Password' />
-                    {errors?.password?.type === 'required' && <span className='text-red-500'>Password required</span>}
+                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='প্রয়োজন' />
+                    {errors?.password?.type === 'required' && <span className='text-white'>পাসওয়ার্ড প্রয়োজন</span>}
                     {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must be at least 6 characters long</span>}
-                    <span onClick={() => setOpen(!open)} className='absolute top-3 right-4'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
+                    <span onClick={() => setOpen(!open)} className='absolute top-3 right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
                 </div>
-                <input className='bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="Register" />
-                <p>Already registered? <Link className='text-[#0D9276] underline' to={'/login'}>Log In</Link></p>
+                <input className='border hover:bg-white hover:text-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="রেজিস্টার" />
+                <p className='text-white'>রেজিস্টার করেছেন? <Link className=' underline' to={'/login'}>লগ ইন</Link></p>
             </form>
         </div>
     );
