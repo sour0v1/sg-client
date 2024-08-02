@@ -1,3 +1,8 @@
-ul a.active{
-    color:  #FF7D29;
+ul a.active {
+    text-decoration: underline;
+
+}
+
+ul a:hover {
+    text-decoration: underline;
 }

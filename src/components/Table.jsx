@@ -62,7 +62,7 @@ const Table = () => {
                 <input onChange={handleSearch} className='py-3 px-3 bg-[rgb(255,125,41)] bg-opacity-10 my-6 w-full rounded-full outline-[#FF7D29] lg:w-2/3' placeholder='বই এর নাম অথবা লেখকের নাম দিয়ে সার্চ করুন' type="text" />
             </div>
             <div className="overflow-x-auto">
-                <h2 className='my-2 text-[#0D9276]'>মোট বই সংখ্যা : {data?.totalBooks}</h2>
+                {/* <h2 className='my-2 text-[#0D9276]'>মোট বই সংখ্যা : {data?.totalBooks}</h2> */}
                 <table className="table">
                     {/* head */}
                     <thead className='bg-[#0D9276]  text-white'>

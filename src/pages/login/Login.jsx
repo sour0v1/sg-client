@@ -123,7 +123,7 @@ const Login = () => {
                     </div>
                 </Link>
                 {
-                    errorMessage && <h2 className='text-red-500 text-center'>{errorMessage}</h2>
+                    errorMessage && <h2 className='text-white text-center'>{errorMessage}</h2>
                 }
 
                 <div className='w-full'>

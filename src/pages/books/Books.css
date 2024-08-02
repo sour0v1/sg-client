@@ -1,7 +1,11 @@
 .category a.active {
-    color: #FF7D29;
+    color: #FF9800;
 }
 
+/* .category a:hover {
+
+} */
+
 .category a {
-    text-decoration: underline;
+    width: fit-content;
 }

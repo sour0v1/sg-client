@@ -102,7 +102,7 @@ const Registration = () => {
                 </div>
                 <div className='space-y-1 text-white'>
                     <span>ছবি</span>
-                    <input {...register('photo', { required: true })} className='py-2 bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='Your photo' />
+                    <input {...register('photo', { required: true })} className='py-[5px] bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='Your photo' />
                     {errors?.photo && <span className='text-white mt-1 inline-block'>ছবি প্রয়োজন</span>}
                 </div>
 
@@ -111,9 +111,9 @@ const Registration = () => {
                     {errors?.email && <span className='text-white'>ইমেইল প্রয়োজন</span>}
                 </div>
                 <div className='relative w-full'>
-                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='প্রয়োজন' />
+                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='পাসওয়ার্ড' />
                     {errors?.password?.type === 'required' && <span className='text-white'>পাসওয়ার্ড প্রয়োজন</span>}
-                    {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must be at least 6 characters long</span>}
+                    {errors?.password?.type === 'pattern' && <span className='text-white'>Password must be at least 6 characters long</span>}
                     <span onClick={() => setOpen(!open)} className='absolute top-3 right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
                 </div>
                 <input className='border hover:bg-white hover:text-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="রেজিস্টার" />

@@ -5,37 +5,41 @@ import Table from '../../components/Table';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import ScrollToTop from '../../components/ScrollToTop';
+import { IoIosArrowDown } from 'react-icons/io';
 
 const Books = () => {
     const axiosPublic = useAxiosPublic();
-    
+    const [category, setCategory] = useState(false);
+
     return (
-        <div className='max-w-5xl mx-auto px-6 lg:px-0 mt-28'>
-            <div className='w-full'>
+        <div className='max-w-5xl mx-auto px-6 lg:px-0 mt-24 lg:mt-32'>
+            <div className='w-full relative overflow-hidden'>
                 {/* category */}
-                <h2 className='text-xl font-bold text-center text-[#0D9276] my-6'>-- ক্যাটেগরি --</h2>
-                <div className='category flex flex-wrap justify-center items-center gap-6'>
-                    <NavLink to={'category/all'}>সকল বই</NavLink>
-                    <NavLink to={'category/novel'}>উপন্যাস</NavLink>
-                    <NavLink to={'category/story'}>গল্প</NavLink>
-                    <NavLink to={'category/war'}>মুক্তিযুদ্ধ</NavLink>
-                    <NavLink to={'category/bangladesh'}>বাংলাদেশ</NavLink>
-                    <NavLink to={'category/vision'}>দর্শন</NavLink>
-                    <NavLink to={'category/drama'}>নাটকের বই</NavLink>
-                    <NavLink to={'category/essay'}>প্রবন্ধ</NavLink>
-                    <NavLink to={'category/poem'}>কবিতা</NavLink>
-                    <NavLink to={'category/scifi'}>সায়েন্স ফিকশন</NavLink>
-                    <NavLink to={'category/politics'}>রাজনীতি</NavLink>
-                    <NavLink to={'category/language'}>ভাষা ও অভিধান</NavLink>
-                    <NavLink to={'category/law'}>আইন ও বিচার</NavLink>
-                    <NavLink to={'category/english'}>ইংরেজি ভাষার বই</NavLink>
-                    <NavLink to={'category/food'}>রান্নাবান্না, খাদ্য ও পুষ্টি</NavLink>
-                    <NavLink to={'category/agro'}>কৃষি ও কৃষক</NavLink>
-                    <NavLink to={'category/history'}>ইতিহাস ও ঐতিহ্য</NavLink>
-                    <NavLink to={'category/religion'}>ধর্ম বিষয়ক</NavLink>
-                    <NavLink to={'category/adventure'}>রহস্য, গোয়েন্দা, ভৌতিক, থ্রিলার ও অ্যাডভেঞ্চার</NavLink>
-                    <NavLink to={'category/motivation'}>আত্ম-উন্নয়ন, মোটিভেশনাল ও মেডিটেশন</NavLink>
-                    <NavLink to={'category/math'}>গণিত, বিজ্ঞান ও প্রযুক্তি</NavLink>
+                <button onClick={() => setCategory(!category)} className='lg:text-xl w-full font-bold text-center text-white bg-[#0D9276] py-3 px-3 border flex justify-center items-center lg:pointer-events-none'>ক্যাটেগরি
+                    <span className='text-white pl-3 lg:hidden'><IoIosArrowDown /></span>
+                </button>
+                <div className={`category grid grid-cols-2 lg:flex flex-wrap justify-center items-center gap-2 lg:gap-6 border p-3 lg:p-6 lg:border-none duration-500 ${category ? 'opacity-100 translate-y-0 bg-[#0D9276] text-white lg:bg-white lg:text-black' : 'opacity-0 lg:opacity-100 absolute lg:static -translate-y-full lg:translate-y-0 pointer-events-none lg:pointer-events-auto border-none'}`}>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/all'}>সকল বই</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/novel'}>উপন্যাস</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/story'}>গল্প</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/war'}>মুক্তিযুদ্ধ</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/bangladesh'}>বাংলাদেশ</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/vision'}>দর্শন</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/drama'}>নাটকের বই</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/essay'}>প্রবন্ধ</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/poem'}>কবিতা</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/scifi'}>সায়েন্স ফিকশন</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/politics'}>রাজনীতি</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/language'}>ভাষা ও অভিধান</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/law'}>আইন ও বিচার</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/english'}>ইংরেজি ভাষার বই</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/food'}>রান্নাবান্না, খাদ্য ও পুষ্টি</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/agro'}>কৃষি ও কৃষক</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/history'}>ইতিহাস ও ঐতিহ্য</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/religion'}>ধর্ম বিষয়ক</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/adventure'}>রহস্য, গোয়েন্দা, ভৌতিক, থ্রিলার ও অ্যাডভেঞ্চার</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/motivation'}>আত্ম-উন্নয়ন, মোটিভেশনাল ও মেডিটেশন</NavLink>
+                    <NavLink onClick={() => setCategory(!category)} to={'category/math'}>গণিত, বিজ্ঞান ও প্রযুক্তি</NavLink>
                 </div>
                 {/* books */}
                 <div>
