@@ -9,7 +9,7 @@ const Root = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='mt-20'>
+            <div className='mt-[72px] lg:mt-20'>
                 <ScrollToTop></ScrollToTop>
                 <Outlet></Outlet>
             </div>
