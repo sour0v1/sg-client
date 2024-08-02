@@ -5,7 +5,7 @@ import Table from '../../components/Table';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import ScrollToTop from '../../components/ScrollToTop';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 const Books = () => {
     const axiosPublic = useAxiosPublic();
@@ -15,10 +15,10 @@ const Books = () => {
         <div className='max-w-5xl mx-auto px-6 lg:px-0 mt-24 lg:mt-32'>
             <div className='w-full relative overflow-hidden'>
                 {/* category */}
-                <button onClick={() => setCategory(!category)} className='lg:text-xl w-full font-bold text-center text-white bg-[#0D9276] py-3 px-3 border flex justify-center items-center lg:pointer-events-none'>ক্যাটেগরি
-                    <span className='text-white pl-3 lg:hidden'><IoIosArrowDown /></span>
+                <button onClick={() => setCategory(!category)} className='lg:text-xl w-full font-bold text-center text-white bg-[#0D9276] py-3 px-3 border flex justify-center items-center lg:pointer-events-none lg:hidden'>ক্যাটেগরি
+                    <span className='text-white pl-3 lg:hidden text-xl'>{category ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
                 </button>
-                <div className={`category grid grid-cols-2 lg:flex flex-wrap justify-center items-center gap-2 lg:gap-6 border p-3 lg:p-6 lg:border-none duration-500 ${category ? 'opacity-100 translate-y-0 bg-[#0D9276] text-white lg:bg-white lg:text-black' : 'opacity-0 lg:opacity-100 absolute lg:static -translate-y-full lg:translate-y-0 pointer-events-none lg:pointer-events-auto border-none'}`}>
+                <div className={`category z-30 grid grid-cols-2 lg:flex flex-wrap bg-[#0D9276] text-white justify-center items-center gap-2 rounded-b-lg lg:rounded-lg shadow-lg lg:gap-6 border p-3 lg:p-6 lg:border-none duration-500  absolute lg:static ${category ? 'opacity-100 translate-y-0 ' : 'opacity-0 lg:opacity-100 -translate-y-full lg:translate-y-0 pointer-events-none lg:pointer-events-auto border-none'}`}>
                     <NavLink onClick={() => setCategory(!category)} to={'category/all'}>সকল বই</NavLink>
                     <NavLink onClick={() => setCategory(!category)} to={'category/novel'}>উপন্যাস</NavLink>
                     <NavLink onClick={() => setCategory(!category)} to={'category/story'}>গল্প</NavLink>

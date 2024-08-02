@@ -37,13 +37,13 @@ const MembersTable = () => {
         </div>
     }
     return (
-        <div>
+        <div className='mt-6'>
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
                 {
                     members?.result.map((member, idx) =>
                         <div key={idx} className=''>
-                            <img className='w-full' src={member?.photo} alt="photo" />
-                            <div className='bg-[#0D9276] text-white border-t border-t-white p-2 space-y-1'>
+                            <img className='w-full h-28 lg:h-44' src={member?.photo} alt="photo" />
+                            <div className='bg-[#0D9276] w-full h-14 lg:h-14 text-white border-t border-t-white p-2 space-y-1 flex flex-col justify-center items-center'>
                                 <h2 className='font-medium text-center'>{member?.name}</h2>
                                 <p className='text-center text-sm'>{member?.occupation}</p>
                             </div>

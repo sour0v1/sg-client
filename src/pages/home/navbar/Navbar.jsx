@@ -36,7 +36,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={`fixed top-0 left-0 right-0 z-20 flex justify-between items-center gap-2 w-full px-6 lg:px-6 bg-[#0D9276] py-4 shadow-md text-white `}>
+            <div className={`fixed top-0 left-0 right-0 z-40 flex justify-between items-center gap-2 w-full px-6 lg:px-6 bg-[#0D9276] py-4 shadow-md text-white `}>
                 <div className='flex justify-center items-center gap-2'>
                     <div className='hidden lg:block'>
                         <img className='w-14 h-14 rounded-full border-2' src={logo} alt="logo" />

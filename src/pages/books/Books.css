@@ -2,9 +2,9 @@
     color: #FF9800;
 }
 
-/* .category a:hover {
-
-} */
+.category a:hover {
+    text-decoration: underline;
+}
 
 .category a {
     width: fit-content;
