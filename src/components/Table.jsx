@@ -9,7 +9,7 @@ const Table = () => {
     const { category } = useParams();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchValue, setSearchValue] = useState('');
-    const {loading, setLoading} = useContext(AuthContext);
+    const { loading, setLoading } = useContext(AuthContext);
     // const [totalPage, setTotalPage] = useState(1);
     // console.log(category);
     // books by category
@@ -40,7 +40,7 @@ const Table = () => {
     }
     // console.log(searchValue);
     // books by search
-    const { data: searchedBooks, isPending : isLoading } = useQuery({
+    const { data: searchedBooks, isPending: isLoading, isFetching } = useQuery({
         queryKey: ['searchedBooks', searchValue],
         queryFn: async () => {
             const res = await axiosPublic(`/search-books?searchValue=${searchValue}`)
@@ -48,8 +48,8 @@ const Table = () => {
         },
         enabled: !!searchValue
     })
-    // console.log('searched books - ', searchedBooks)
-    // console.log('category books -', data?.books)
+    console.log('searched books - ', searchedBooks)
+    console.log('category books -', data?.books)
 
     if (isPending) {
         return <div className='lg:w-2/3 m-auto my-9 flex flex-col justify-center items-center gap-1 h-full'>
@@ -63,33 +63,39 @@ const Table = () => {
             </div>
             <div className="overflow-x-auto">
                 {/* <h2 className='my-2 text-[#0D9276]'>মোট বই সংখ্যা : {data?.totalBooks}</h2> */}
-                <table className="table">
-                    {/* head */}
-                    <thead className='bg-[#0D9276]  text-white'>
-                        <tr className='text-center'>
-                            <th>নিবন্ধন নং</th>
-                            <th>বই</th>
-                            <th>লেখক</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            searchValue && searchedBooks?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 !== 0 && 'bg-gray-100'} text-center`}>
-                                <th>{book?.bookIdentityNo}</th>
-                                <td>{book?.bookName}</td>
-                                <td>{book?.author}</td>
-                            </tr>)
-                        }
-                        {
-                            !searchValue && data?.books?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 !== 0 && 'bg-gray-100'} text-center`}>
-                                <th>{book?.bookIdentityNo}</th>
-                                <td>{book?.bookName}</td>
-                                <td>{book?.author}</td>
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
+                {
+                    isFetching ? <p className='w-full text-[#0D9276] text-center'>loading...</p> :
+                       searchedBooks?.length > 0 || (data?.books.length > 0 && !searchValue) ? <table className="table">
+                            {/* head */}
+                            <thead className='bg-[#0D9276] text-white'>
+                                <tr className='text-center'>
+                                    <th>নিবন্ধন নং</th>
+                                    <th>বই</th>
+                                    <th>লেখক</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* row 1 */}
+                                {
+                                    searchValue && searchedBooks?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 !== 0 && 'bg-gray-100'} text-center`}>
+                                        <th>{book?.bookIdentityNo}</th>
+                                        <td>{book?.bookName}</td>
+                                        <td>{book?.author}</td>
+                                    </tr>)
+                                }
+                                {
+                                    !searchValue && data?.books?.map((book, idx) => <tr key={idx} className={`${(idx + 2) % 2 !== 0 && 'bg-gray-100'} text-center`}>
+                                        <th>{book?.bookIdentityNo}</th>
+                                        <td>{book?.bookName}</td>
+                                        <td>{book?.author}</td>
+                                    </tr>)
+                                }
+                            </tbody>
+
+                        </table> :
+                        <p className='w-full text-[#0D9276] text-center'>দুঃখিত! কোন বই পাওয়া যায়নি</p>
+                }
+
             </div>
             <div className='w-full flex justify-center items-center gap-9 my-6'>
                 <button disabled={currentPage <= 1} onClick={handlePrevPage} className='btn'>Prev</button>

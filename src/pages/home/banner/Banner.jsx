@@ -61,7 +61,7 @@ const Banner = () => {
                         {/* text here */}
                         <div className="flex flex-col h-full justify-center items-center">
                             <h2 className="text-sm lg:text-2xl font-extrabold text-white opacity-70 text-left border-l-4 pl-2">&quot; তোমরা আমাকে শিক্ষিত মা দাও, আমি তোমাদের শিক্ষিত জাতি দেবো। &quot;</h2>
-                            <p className="text-right text-white text-sm opacity-70 my-4 w-full">- নেপোলিয়ন বোনাপার্ট।</p>
+                            <p className="text-right text-white text-sm opacity-70 my-4 w-full">- নেপোলিয়ন বোনাপার্ট</p>
                         </div>
 
                     </div>
