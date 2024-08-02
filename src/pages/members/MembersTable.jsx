@@ -45,7 +45,7 @@ const MembersTable = () => {
                             <img className='w-full h-28 lg:h-44' src={member?.photo} alt="photo" />
                             <div className='bg-[#0D9276] w-full h-14 lg:h-14 text-white border-t border-t-white p-2 space-y-1 flex flex-col justify-center items-center'>
                                 <h2 className='font-medium text-center'>{member?.name}</h2>
-                                <p className='text-center text-sm'>{member?.occupation}</p>
+                                <p className='text-center text-xs'>{member?.occupation}</p>
                             </div>
                         </div>)
                 }

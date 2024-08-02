@@ -13,12 +13,12 @@ const Books = () => {
 
     return (
         <div className='max-w-5xl mx-auto px-6 lg:px-0 mt-24 lg:mt-32'>
-            <div className='w-full relative overflow-hidden'>
+            <div className='w-full relative'>
                 {/* category */}
-                <button onClick={() => setCategory(!category)} className='lg:text-xl w-full font-bold text-center text-white bg-[#0D9276] py-3 px-3 border flex justify-center items-center lg:pointer-events-none lg:hidden'>ক্যাটেগরি
+                <button onClick={() => setCategory(!category)} className='lg:text-xl w-full font-bold text-center text-white bg-[#0D9276] py-3 px-3 border-2 flex justify-center items-center lg:pointer-events-none lg:hidden'>ক্যাটেগরি
                     <span className='text-white pl-3 lg:hidden text-xl'>{category ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
                 </button>
-                <div className={`category z-30 grid grid-cols-2 lg:flex flex-wrap bg-[#0D9276] text-white justify-center items-center gap-2 rounded-b-lg lg:rounded-lg shadow-lg lg:gap-6 border p-3 lg:p-6 lg:border-none duration-500  absolute lg:static ${category ? 'opacity-100 translate-y-0 ' : 'opacity-0 lg:opacity-100 -translate-y-full lg:translate-y-0 pointer-events-none lg:pointer-events-auto border-none'}`}>
+                <div className={`category overflow-auto h-[300px] grid z-30 grid-cols-2 lg:flex flex-wrap bg-[#0D9276] text-white justify-center items-center gap-2 rounded-b-lg lg:rounded-lg shadow-lg lg:gap-6 border-b-2 p-3 lg:p-6 lg:border-none duration-500  absolute lg:static ${category ? 'opacity-100 translate-y-0 ' : 'opacity-0 lg:opacity-100 -translate-y-full lg:translate-y-0 pointer-events-none lg:pointer-events-auto border-none'}`}>
                     <NavLink onClick={() => setCategory(!category)} to={'category/all'}>সকল বই</NavLink>
                     <NavLink onClick={() => setCategory(!category)} to={'category/novel'}>উপন্যাস</NavLink>
                     <NavLink onClick={() => setCategory(!category)} to={'category/story'}>গল্প</NavLink>

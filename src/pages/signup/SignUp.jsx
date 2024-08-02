@@ -68,7 +68,7 @@ const SignUp = () => {
         </div>
     }
     return (
-        <div className='max-w-5xl mx-auto mt-20'>
+        <div className='max-w-5xl mx-auto lg:mt-28 mb-9'>
             {/* modal */}
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box text-center">
