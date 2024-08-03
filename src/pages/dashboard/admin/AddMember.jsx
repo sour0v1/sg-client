@@ -81,11 +81,11 @@ const AddMember = () => {
                     <option value={'lifetime'}>আজীবন সদস্য</option>
                 </select>
                 {errors?.category && <span className='text-red-500 mt-1 inline-block'>ক্যাটেগরি নির্বাচন করুন</span>}
-                <input className='py-3 bg-[#0D9276] bg-opacity-30 opacity-80 hover:bg-opacity-80 hover:text-white hover:opacity-100 font-medium outline-none px-3 w-full' type="submit" value={'Add'} />
+                <input className='py-3 bg-[#FF7D29] bg-opacity-30 opacity-80 hover:bg-opacity-80 hover:text-white hover:opacity-100 font-medium outline-none px-3 w-full' type="submit" value={'যুক্ত করুন'} />
 
             </form>
             <div onClick={() => reset()} className='lg:w-2/3 text-center my-3 mx-auto'>
-                <button className='py-3 px-4 bg-gray-300'>Reset</button>
+                <button className='py-3 px-4 bg-gray-300 rounded-md'>রিসেট</button>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 const Dashboard = () => {
     const { user, loading } = useContext(AuthContext);
     const userRole = useRule();
-    const [value, setValue] = useState('Admin Profile');
+    const [value, setValue] = useState('এডমিন প্রোফাইল');
     const [category, setCategory] = useState(false);
     if (loading) {
         return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
@@ -21,7 +21,7 @@ const Dashboard = () => {
     return (
         <>
             <div className='max-w-5xl flex justify-center items-center mx-auto w-full  text-white bg-[#0D9276]  py-4 text-center lg:mt-3 relative z-40 border-b lg:rounded-t-xl'>
-                <h1 className='lg:text-xl font-bold border-r-2 lg:border-r-0 pr-2 lg:pr-0'>Dashboard</h1>
+                <h1 className='lg:text-xl font-bold border-r-2 lg:border-r-0 pr-2 lg:pr-0'>ড্যাশবোর্ড</h1>
                 <button onClick={() => setCategory(!category)} className='pl-2 lg:text-xl font-bold lg:hidden flex justify-center items-center text-[#FF9800]'>{value}
                     <span className=' pl-2 lg:hidden text-xl'>{category ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
                 </button>
@@ -33,20 +33,20 @@ const Dashboard = () => {
                     {
                         userRole === 'admin' ?
                             <>
-                                <NavLink onClick={() =>{ setCategory(!category); setValue('Admin Profile')}} className={'hover:underline'} to={'admin/profile'}>Admin Profile</NavLink>
-                                <NavLink onClick={() =>{ setCategory(!category); setValue('Add Book')}} className={'hover:underline'} to={'admin/add-book'}>Add book</NavLink>
-                                <NavLink onClick={() =>{ setCategory(!category); setValue('Add Member')}} className={'hover:underline'} to={'admin/add-member'}>Add Member</NavLink>
-                                <NavLink onClick={() =>{ setCategory(!category); setValue('Applications')}} className={'hover:underline'} to={'admin/applications'}>Applications</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('এডমিন প্রোফাইল')}} className={'hover:underline'} to={'admin/profile'}>এডমিন প্রোফাইল</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('বই যুক্ত করুন')}} className={'hover:underline'} to={'admin/add-book'}>বই যুক্ত করুন</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('সদস্য যুক্ত করুন')}} className={'hover:underline'} to={'admin/add-member'}>সদস্য যুক্ত করুন</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('এপ্লিকেশন')}} className={'hover:underline'} to={'admin/applications'}>এপ্লিকেশন</NavLink>
                             </> :
                             <>
-                                <NavLink onClick={() =>{ setCategory(!category); setValue('Profile')}} className={'hover:underline'} to={'user/profile'}>Your profile</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('প্রোফাইল')}} className={'hover:underline'} to={'user/profile'}>প্রোফাইল</NavLink>
                             </>
                     }
 
-                    <NavLink className={'hover:underline border-t lg:border-t-0 pt-6 lg:pt-0 lg:border-l lg:pl-6'} to={'/'}>Home</NavLink>
+                    <NavLink className={'hover:underline border-t lg:border-t-0 pt-6 lg:pt-0 lg:border-l lg:pl-6'} to={'/'}>হোম</NavLink>
                 </div>
 
-                <div className='px-4 lg:px-9 pb-6 lg:h-screen lg:w-3/4 border'>
+                <div className='w-full border py-6 px-4 lg:px-9'>
                     <ScrollToTop></ScrollToTop>
                     <Outlet></Outlet>
                 </div>
