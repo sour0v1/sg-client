@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import logo from '../../../assets/images/sg-logo.jpg'
 import { HiMenu } from 'react-icons/hi';
 import { RxCross1 } from 'react-icons/rx';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 import { IoCloseOutline } from 'react-icons/io5';
 import { AuthContext } from '../../../provider/AuthProvider';
@@ -39,7 +39,7 @@ const Navbar = () => {
             <div className={`fixed top-0 left-0 right-0 z-40 flex justify-between items-center gap-2 w-full px-6 lg:px-6 bg-[#0D9276] py-4 shadow-md text-white `}>
                 <div className='flex justify-center items-center gap-2'>
                     <div className='hidden lg:block'>
-                        <img className='w-14 h-14 rounded-full border-2' src={logo} alt="logo" />
+                        <Link to={'/'}><img className='w-14 h-14 rounded-full border-2' src={logo} alt="logo" /></Link>
                     </div>
                     <div className='space-y-1'>
                         <h2 className='text-sm lg:text-xl font-bold text-white'>স্বপ্নাশ্রয় গ্রন্থাগার</h2>

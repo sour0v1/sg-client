@@ -98,8 +98,8 @@ const Table = () => {
 
             </div>
             <div className='w-full flex justify-center items-center gap-9 my-6'>
-                <button disabled={currentPage <= 1} onClick={handlePrevPage} className='btn'>Prev</button>
-                <button disabled={totalPage === currentPage} onClick={handleNextPage} className='btn'>Next</button>
+                <button disabled={currentPage <= 1} onClick={handlePrevPage} className='btn'>পূর্ববর্তী</button>
+                <button disabled={totalPage === currentPage} onClick={handleNextPage} className='btn'>পরবর্তী</button>
             </div>
         </div>
     );
