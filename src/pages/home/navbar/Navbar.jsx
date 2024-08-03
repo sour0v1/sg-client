@@ -67,7 +67,7 @@ const Navbar = () => {
                         {
                             user && <>
                                 <NavLink to={`${userRole === 'admin' ? 'dashboard/admin/profile' : 'dashboard/user/profile'}`} className={'hover:underline'}>ড্যাশবোর্ড</NavLink>
-                                <button onClick={() => { setDropDown(!dropdown); handleLogOut() }} className='text-left hover:underline'>লগআউট</button>
+                                <button onClick={() => { setDropDown(!dropdown); handleLogOut() }} className='text-left hover:underline'>লগ আউট</button>
                             </>
                         }
                     </ul>

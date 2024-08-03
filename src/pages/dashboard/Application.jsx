@@ -65,7 +65,7 @@ const Application = () => {
                 <p className=''>গ.প্র.অধি. রেজি নং - ০৭</p>
             </div>
             <div className='flex justify-end items-center my-2'>
-                <img className='border w-36 h-36' src={application?.photo} alt="photo" />
+                <img className='border w-16 lg:w-36 h-16 lg:h-36' src={application?.photo} alt="photo" />
             </div>
 
             {/* info */}

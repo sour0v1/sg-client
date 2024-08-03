@@ -50,13 +50,13 @@ const AddBook = () => {
 
     }
     if (loading) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-full'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
         </div>
     }
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-2/3 shadow-lg lg:p-6 space-y-3 mx-auto'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-2/3 shadow-lg rounded-md p-4 lg:p-6 space-y-3 mx-auto'>
 
                 <input {...register('identity', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নিবন্ধন নং' />
                 {errors.identity?.type === 'required' && <span className='text-red-500 mt-1 block'>নিবন্ধন নং আবশ্যক</span>}

@@ -27,7 +27,7 @@ const Applications = () => {
         }
     }
     if (isPending) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-full'>
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
         </div>
     }
@@ -39,9 +39,9 @@ const Applications = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Photo</th>
-                            <th>Phone</th>
+                            <th>নাম</th>
+                            <th>ছবি</th>
+                            <th>ফোন</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -53,9 +53,9 @@ const Applications = () => {
 
                                     <th>{index + 1}</th>
                                     <td>{application?.name}</td>
-                                    <td><img className='lg:w-24 lg:h-24' src={application?.photo} alt="photo" /></td>
+                                    <td><img className='w-16 lg:w-16 h-9 lg:h-16' src={application?.photo} alt="photo" /></td>
                                     <td>{application?.mobile}</td>
-                                    <td className=''><Link to={application?._id} className='btn'>View Application</Link></td>
+                                    <td className=''><Link to={application?._id} className='py-2 px-3 bg-[#0D9276] text-white rounded-md'>দেখুন</Link></td>
                                 </tr>
                             )
                         }

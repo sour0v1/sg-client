@@ -57,10 +57,10 @@ const Registration = () => {
                         photoURL: photo
                     })
                         .then(async () => {
-                            navigate('/')
+                            navigate('/login')
                             Swal.fire({
                                 title: "Success",
-                                text: "Logged in successfully!",
+                                text: "সফলভাবে রেজিস্টার হয়েছে। এখন লগ ইন করুন",
                                 icon: "success",
                                 confirmButtonColor: '#0D9276'
                             });
@@ -107,11 +107,11 @@ const Registration = () => {
                 </div>
 
                 <div className='w-full'>
-                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3' type="email" placeholder='ইমেইল' />
+                    <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="email" placeholder='ইমেইল' />
                     {errors?.email && <span className='text-white'>ইমেইল প্রয়োজন</span>}
                 </div>
                 <div className='relative w-full'>
-                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='পাসওয়ার্ড' />
+                    <input {...register('password', { required: true, pattern: /^.{6,}$/ })} className='bg-gray-100 py-2 text-[#0D9276] w-full outline-none px-3' type={!open ? 'password' : 'text'} placeholder='পাসওয়ার্ড' />
                     {errors?.password?.type === 'required' && <span className='text-white'>পাসওয়ার্ড প্রয়োজন</span>}
                     {errors?.password?.type === 'pattern' && <span className='text-white'>Password must be at least 6 characters long</span>}
                     <span onClick={() => setOpen(!open)} className='absolute top-3 right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
