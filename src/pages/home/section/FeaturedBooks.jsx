@@ -16,14 +16,14 @@ const FeaturedBooks = () => {
                 <h2 className='border-[#0D9276] border-2 mx-9 lg:mx-12 my-2 rounded-full border-opacity-90'></h2>
             </div>
             <div className='flex flex-col justify-center lg:grid lg:grid-cols-4 items-center gap-9'>
-                <img className='h-60 hover:scale-105 duration-200' src={book1} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book2} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book3} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book4} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book5} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book6} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book7} alt="" />
-                <img className='h-60 hover:scale-105 duration-200' src={book8} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book1} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book2} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book3} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book4} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book5} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book6} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book7} alt="" />
+                <img className='h-56 w-40 hover:scale-105 duration-200' src={book8} alt="" />
             </div>
         </div>
     );

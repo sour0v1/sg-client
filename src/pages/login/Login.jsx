@@ -93,11 +93,11 @@ const Login = () => {
                     </form>
 
                     <form onSubmit={handlePassReset} className='space-y-2'>
-                        <p className='text-[#0D9276]'>Enter your email that you have used to register at Swapanshray Granthagar : </p>
+                        <p className='text-[#0D9276]'>আপনার ইমেইল : </p>
                         <div className='w-full flex justify-center items-center gap-2'>
-                            <input className='bg-gray-100 py-2 w-2/3 outline-none px-3 border border-[#0D9276]' type="email" name='email' placeholder='Email' required />
+                            <input className='bg-gray-200 text-[#0D9276] py-2 w-2/3 px-3 outline-[#0D9276]' type="email" name='email' placeholder='ইমেইল' required />
 
-                            <input className='bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 py-2 text-white w-1/3' type="submit" value={'Get email'} />
+                            <input className='bg-[#0D9276] bg-opacity-80 hover:bg-opacity-100 py-2 text-white w-1/3 rounded' type="submit" value={'ইমেইল পান'} />
                         </div>
 
                     </form>
@@ -115,7 +115,7 @@ const Login = () => {
 
                 </div>
             </dialog>
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 lg:border'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 lg:border lg:rounded-xl lg:shadow-lg lg:shadow-white'>
                 <Link to='/'>
                     <div className='btn m-6 w-fit'>
                         <span className='text-[#0D9276]'><FiArrowLeft /></span>

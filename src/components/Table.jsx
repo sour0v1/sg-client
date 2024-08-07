@@ -16,7 +16,7 @@ const Table = () => {
     const { data, isPending } = useQuery({
         queryKey: ['books', category, currentPage],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/category/books?category=${category}&page=${currentPage}&limit=10`)
+            const res = await axiosPublic.get(`/category/books?category=${category}&page=${currentPage}&limit=20`)
             return res.data;
         }
     })
