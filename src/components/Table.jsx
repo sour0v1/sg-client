@@ -1,14 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../hooks/useAxiosPublic';
 import { AuthContext } from '../provider/AuthProvider';
+import BookRequest from './BookRequest';
 
 const Table = () => {
     const axiosPublic = useAxiosPublic();
     const { category } = useParams();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchValue, setSearchValue] = useState('');
+    const [request, setRequest] = useState(false);
+    const [bookInfo, setBookInfo] = useState({});
     const { loading, setLoading } = useContext(AuthContext);
     // const [totalPage, setTotalPage] = useState(1);
     // console.log(category);
@@ -56,8 +59,17 @@ const Table = () => {
             <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
         </div>
     }
+
+    // handle book request
+    const handleBookRequest = (bookNo, bookName, author) => {
+        setRequest(true);
+        const info = {
+            bookNo, bookName, author
+        }
+        setBookInfo(info);
+    }
     return (
-        <div>
+        <div className=''>
             <div className='w-full text-center'>
                 <input onChange={handleSearch} className='py-3 px-3 bg-[rgb(255,125,41)] bg-opacity-10 my-6 w-full rounded-full outline-[#FF7D29] lg:w-2/3' placeholder='বই এর নাম অথবা লেখকের নাম দিয়ে সার্চ করুন' type="text" />
             </div>
@@ -65,13 +77,14 @@ const Table = () => {
                 {/* <h2 className='my-2 text-[#0D9276]'>মোট বই সংখ্যা : {data?.totalBooks}</h2> */}
                 {
                     isFetching ? <p className='w-full text-[#0D9276] text-center'>loading...</p> :
-                       searchedBooks?.length > 0 || (data?.books.length > 0 && !searchValue) ? <table className="table">
+                        searchedBooks?.length > 0 || (data?.books.length > 0 && !searchValue) ? <table className="table">
                             {/* head */}
                             <thead className='bg-[#0D9276] text-white'>
                                 <tr className='text-center'>
-                                    <th>নিবন্ধন নং</th>
+                                    <th>বই নং</th>
                                     <th>বই</th>
                                     <th>লেখক</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,6 +94,11 @@ const Table = () => {
                                         <th>{book?.bookIdentityNo}</th>
                                         <td>{book?.bookName}</td>
                                         <td>{book?.author}</td>
+                                        <td>
+                                            <Link onClick={() => handleBookRequest(book?.bookIdentityNo, book?.bookName, book?.author)} className='px-3 text-center py-2 rounded-xl lg:rounded-full bg-[#0D9276] text-white inline-block'>
+                                                নিতে চাই
+                                            </Link>
+                                        </td>
                                     </tr>)
                                 }
                                 {
@@ -88,12 +106,17 @@ const Table = () => {
                                         <th>{book?.bookIdentityNo}</th>
                                         <td>{book?.bookName}</td>
                                         <td>{book?.author}</td>
+                                        <td>
+                                            <Link onClick={() => handleBookRequest(book?.bookIdentityNo, book?.bookName, book?.author)} className='px-3 text-center py-2 rounded-xl lg:rounded-full bg-[#0D9276] text-white inline-block'>
+                                                নিতে চাই
+                                            </Link>
+                                        </td>
                                     </tr>)
                                 }
                             </tbody>
 
                         </table> :
-                        <p className='w-full text-[#0D9276] text-center'>দুঃখিত! কোন বই পাওয়া যায়নি</p>
+                            <p className='w-full text-[#0D9276] text-center'>দুঃখিত! কোন বই পাওয়া যায়নি</p>
                 }
 
             </div>
@@ -101,6 +124,14 @@ const Table = () => {
                 <button disabled={currentPage <= 1} onClick={handlePrevPage} className='btn'>পূর্ববর্তী</button>
                 <button disabled={totalPage === currentPage} onClick={handleNextPage} className='btn'>পরবর্তী</button>
             </div>
+
+            {/* custom modal for book request */}
+            {
+                request &&
+                <div className={`fixed z-50 inset-0 bg-black bg-opacity-50 flex justify-center items-center`}>
+                    <BookRequest setRequest={setRequest} request={request} bookInfo = {bookInfo}></BookRequest>
+                </div>
+            }
         </div>
     );
 };
