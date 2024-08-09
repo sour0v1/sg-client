@@ -18,27 +18,29 @@ const AddMember = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         // console.log(data)
-        // image hosting to imagebb
-        let picture = 'https://i.ibb.co/n1q3y5s/profile-avatar.jpg'
+        // // image hosting to imagebb
+        // let picture = 'https://i.ibb.co/n1q3y5s/profile-avatar.jpg'
 
-        const imageFile = { image: data?.photo[0] }
-        // console.log(imageFile)
-        if (data?.photo[0]) {
-            const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-            picture = imageRes?.data?.data?.display_url;
-            // console.log(imageRes.data);
-        }
+        // const imageFile = { image: data?.photo[0] }
+        // // console.log(imageFile)
+        // if (data?.photo[0]) {
+        //     const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
+        //         headers: {
+        //             'Content-Type': 'multipart/form-data'
+        //         }
+        //     })
+        //     picture = imageRes?.data?.data?.display_url;
+        //     // console.log(imageRes.data);
+        // }
 
         const name = data?.name;
-        const photo = picture;
-        const occupation = data?.occupation;
+        // const photo = picture;
+        const role = data?.role;
         const memberCategory = data?.category;
+        const address = data?.address;
+        const mobile = data?.mobile;
         const memberInfo = {
-            name, photo, occupation, memberCategory
+            name, role, memberCategory, address, mobile
         }
 
         const res = await axiosSecure.post(`/add-member`, memberInfo)
@@ -48,7 +50,7 @@ const AddMember = () => {
                 title: "Success",
                 text: `সফলভাবে অন্তর্ভুক্ত হয়েছে`,
                 icon: "success",
-                confirmButtonColor : '#0D9276'
+                confirmButtonColor: '#0D9276'
             });
             setLoading(false);
         }
@@ -69,9 +71,16 @@ const AddMember = () => {
                 </div> */}
                 <input {...register('name', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='নাম' />
                 {errors?.name && <span className='text-red-500 mt-1 inline-block'>নাম আবশ্যক</span>}
-                <input {...register('photo', { required: false })} className='py-3 bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='ছবি' />
-                <input {...register('occupation', { required: false })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='পদবি' />
-                {errors?.occupation && <span className='text-red-500 mt-1 inline-block'>পদবি নির্বাচন করুন</span>}
+
+                <input {...register('role', { required: false })} className='py-3 bg-gray-100 outline-none px-3 w-full' type="text" placeholder='পদবি' />
+                {errors?.role && <span className='text-red-500 mt-1 inline-block'>পদবি আবশ্যক</span>}
+
+                <input {...register('address', { required: true })} className='py-3 bg-gray-100  outline-none px-3 w-full' type="text" placeholder='ঠিকানা' />
+                {errors?.address && <span className='text-red-500 mt-1 inline-block'>ঠিকানা আবশ্যক</span>}
+
+                <input {...register('mobile', { required: false })} className='py-3 bg-gray-100  outline-none px-3 w-full' type="text" placeholder='মোবাইল নম্বর' />
+                {errors?.mobile && <span className='text-red-500 mt-1 inline-block'>মোবাইল নম্বর আবশ্যক</span>}
+
                 <select {...register('category', { required: true })} className='py-3 bg-gray-100 outline-none px-3 w-full'>
                     <option className='bg-gray-200' value="">ক্যাটেগরি</option>
                     <option value={'executive'}>কার্যকরী সদস্য</option>

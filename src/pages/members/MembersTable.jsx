@@ -19,6 +19,7 @@ const MembersTable = () => {
         enabled: !!category
     })
     const totalPage = members?.totalPage;
+    console.log(members)
 
     // console.log(members?.result)
     const handleNextPage = () => {
@@ -38,18 +39,33 @@ const MembersTable = () => {
     }
     return (
         <div className='mt-6'>
-            <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
-                {
-                    members?.result.map((member, idx) =>
-                        <div key={idx} className=''>
-                            <img className='w-full h-28 lg:h-44' src={member?.photo} alt="photo" />
-                            <div className='bg-[#0D9276] w-full h-14 lg:h-14 text-white border-t border-t-white p-2 space-y-1 flex flex-col justify-center items-center'>
-                                <h2 className='font-medium text-center'>{member?.name}</h2>
-                                <p className='text-center text-xs'>{member?.occupation}</p>
-                            </div>
-                        </div>)
-                }
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr className='bg-[#0D9276] text-white'>
+                            <th></th>
+                            <th>নাম</th>
+                            <th>পদবি</th>
+                            <th>ঠিকানা</th>
+                            <th>মোবাইল</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* row 1 */}
+                        {
+                            members?.result?.map((book, idx) => <tr key={idx} className="border-b hover:bg-base-200">
+                                <th>{idx + 1}</th>
+                                <td>{book?.name}</td>
+                                <td>{book?.role}</td>
+                                <td>{book?.address}</td>
+                                <td>{book?.mobile}</td>
+                            </tr>)
+                        }
+                    </tbody>
+                </table>
             </div>
+            {/* Next Prev */}
             <div className='w-full flex justify-center items-center gap-9 my-6'>
                 <button disabled={currentPage <= 1} onClick={handlePrevPage} className='btn'>Prev</button>
                 <button disabled={totalPage === currentPage} onClick={handleNextPage} className='btn'>Next</button>
