@@ -95,7 +95,7 @@ const Table = () => {
                                         <td>{book?.bookName}</td>
                                         <td>{book?.author}</td>
                                         <td>
-                                            <Link onClick={() => handleBookRequest(book?.bookIdentityNo, book?.bookName, book?.author)} className='px-3 text-center py-2 rounded-xl lg:rounded-full bg-[#0D9276] text-white inline-block'>
+                                            <Link onClick={() => handleBookRequest(book?.bookIdentityNo, book?.bookName, book?.author)} className='px-4 text-center py-2 rounded-lg lg:rounded-full bg-[#0D9276] text-white inline-block'>
                                                 নিতে চাই
                                             </Link>
                                         </td>
@@ -107,7 +107,7 @@ const Table = () => {
                                         <td>{book?.bookName}</td>
                                         <td>{book?.author}</td>
                                         <td>
-                                            <Link onClick={() => handleBookRequest(book?.bookIdentityNo, book?.bookName, book?.author)} className='px-3 text-center py-2 rounded-xl lg:rounded-full bg-[#0D9276] text-white inline-block'>
+                                            <Link onClick={() => handleBookRequest(book?.bookIdentityNo, book?.bookName, book?.author)} className='px-4 text-center py-2 rounded-lg lg:rounded-full bg-[#0D9276] text-white inline-block'>
                                                 নিতে চাই
                                             </Link>
                                         </td>

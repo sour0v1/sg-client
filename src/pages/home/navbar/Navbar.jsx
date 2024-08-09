@@ -47,7 +47,7 @@ const Navbar = () => {
 
                     </div>
                 </div>
-                <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-[600px] duration-300'} lg:static`}>
+                <div className={`sidebar absolute top-0 ${open ? 'left-0 duration-300' : '-left-full duration-300'} lg:static`}>
                     <ul className='flex flex-col w-full lg:w-auto lg:flex-row lg:justify-center lg:items-center gap-5 h-screen lg:h-auto px-9 lg:px-0 py-6 lg:py-0 bg-[#0D9276] text-white z-20 fixed lg:relative'>
                         <p onClick={() => setOpen(!open)} className='text-2xl lg:text-4xl text-white flex justify-end items-center lg:hidden'><RxCross1 /></p>
                         <NavLink onClick={() => setOpen(false)} to={'/'}>হোম</NavLink>
