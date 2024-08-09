@@ -37,8 +37,7 @@ const Login = () => {
                 setLoading(false);
                 navigate('/')
                 Swal.fire({
-                    title: "Success",
-                    text: "সফলভাবে লগ ইন হয়েছে!",
+                    title: "সফলভাবে লগ ইন হয়েছে!",
                     icon: "success",
                     confirmButtonColor: '#0D9276'
                 });

@@ -40,6 +40,7 @@ const Dashboard = () => {
                             </> :
                             <>
                                 <NavLink onClick={() =>{ setCategory(!category); setValue('প্রোফাইল')}} className={'hover:underline'} to={'user/profile'}>প্রোফাইল</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('বই')}} className={'hover:underline'} to={'user/requested-books'}>আপনার বই</NavLink>
                             </>
                     }
 

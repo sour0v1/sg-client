@@ -16,6 +16,7 @@ import Registration from "../pages/registration/Registration";
 import Login from "../pages/login/Login";
 import UserProfile from "../pages/dashboard/user/UserProfile";
 import PrivateRoute from "./PrivateRoute";
+import RequestedBooks from "../pages/dashboard/user/RequestedBooks";
 
 const router = createBrowserRouter([
     {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: 'login',
+        path: '/login',
         element: <Login></Login>
     },
     {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
             {
                 path: 'user/profile',
                 element : <UserProfile></UserProfile>
+            },
+            {
+                path : 'user/requested-books',
+                element : <RequestedBooks></RequestedBooks>
             }
         ]
     },
