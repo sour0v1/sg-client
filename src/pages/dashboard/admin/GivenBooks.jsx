@@ -13,7 +13,7 @@ const GivenBooks = () => {
     const [bookId, setBookId] = useState(null);
     const [bookName, setBookName] = useState(null);
     const [message, setMessage] = useState(null);
-    console.log(user);
+    // console.log(user);
     const axiosSecure = useAxiosSecure();
     const { data: givenBooks, isFetching, refetch } = useQuery({
         queryKey: ['reqBooks'],
@@ -22,12 +22,12 @@ const GivenBooks = () => {
             return res.data;
         }
     })
-    console.log(givenBooks);
+    // console.log(givenBooks);
     // handle book received
     const handleBookReceived = async () => {
         setLoading(true);
         const res = await axiosSecure.post(`/book-received?id=${bookId}&name=${user?.displayName}`)
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data?.deletedCount) {
             setMessage('সফল হয়েছে!');
             refetch();

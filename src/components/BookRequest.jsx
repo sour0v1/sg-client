@@ -22,14 +22,14 @@ const BookRequest = ({ setRequest, request, bookInfo }) => {
     const onSubmit = async (data) => {
         setLoading(true);
         setMessage(null);
-        console.log(data)
+        // console.log(data)
         // TODO
         const requestInfo = {
             bookNo, bookName, author, name: data?.name, address: data?.address, phone: data?.mobile, userEmail: user?.email, date: moment().tz('Asia/Dhaka').format('Do MMM YYYY, h:mm:ss A')
         }
-        console.log(requestInfo)
+        // console.log(requestInfo)
         const res = await axiosSecure.post('/request-book', requestInfo);
-        console.log(res?.data);
+        // console.log(res?.data);
         if (res.data?.insertedId) {
             setMessage('আপনার আবেদনটি গ্রহন করা হয়েছে। অনুগ্রহ পূর্বক গ্রন্থাগার প্রাঙ্গণে এসে বইটি সংগ্রহ করবেন। ধন্যবাদ।');
             setLoading(false);
@@ -37,7 +37,7 @@ const BookRequest = ({ setRequest, request, bookInfo }) => {
         }
 
     }
-    console.log(errors);
+    // console.log(errors);
     return (
         <>
             {

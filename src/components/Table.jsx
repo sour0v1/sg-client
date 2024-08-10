@@ -51,8 +51,8 @@ const Table = () => {
         },
         enabled: !!searchValue
     })
-    console.log('searched books - ', searchedBooks)
-    console.log('category books -', data?.books)
+    // console.log('searched books - ', searchedBooks)
+    // console.log('category books -', data?.books)
 
     if (isPending) {
         return <div className='lg:w-2/3 m-auto my-9 flex flex-col justify-center items-center gap-1 h-full'>

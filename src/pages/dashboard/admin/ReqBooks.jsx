@@ -12,7 +12,7 @@ const ReqBooks = () => {
     const [open, setOpen] = useState(false);
     const [bookId, setBookId] = useState(null);
     const [message, setMessage] = useState(null);
-    console.log(user);
+    // console.log(user);
     const axiosSecure = useAxiosSecure();
     const { data: requestedBooks, isFetching, refetch } = useQuery({
         queryKey: ['reqBooks'],
@@ -21,7 +21,7 @@ const ReqBooks = () => {
             return res.data;
         }
     })
-    console.log(requestedBooks);
+    // console.log(requestedBooks);
     // form handle
     const {
         register,
@@ -32,14 +32,14 @@ const ReqBooks = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+        // console.log(data)
         // setMessage(null);
         setLoading(true);
         const takenDate = moment().tz('Asia/Dhaka').format('YYYY-MM-DD');
         const givenDate = data?.givenDate;
 
         const res = await axiosSecure.post(`/confirm-req-book?tDate=${takenDate}&gDate=${givenDate}&id=${bookId}`)
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data?.modifiedCount) {
             setMessage('সফল হয়েছে!');
             refetch();

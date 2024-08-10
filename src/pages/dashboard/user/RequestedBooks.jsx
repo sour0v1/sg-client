@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const RequestedBooks = () => {
     const { user, loading, setLoading } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const axiosSecure = useAxiosSecure();
     const { data: requestedBooks, isFetching, refetch } = useQuery({
         queryKey: ['reqBooks'],
@@ -16,7 +16,7 @@ const RequestedBooks = () => {
             return res.data;
         }
     })
-    console.log(requestedBooks);
+    // console.log(requestedBooks);
 
     const handleDelete = async (id) => {
         Swal.fire({
@@ -31,7 +31,7 @@ const RequestedBooks = () => {
             if (result.isConfirmed) {
                 setLoading(true);
                 const res = await axiosSecure.delete(`/req-delete?id=${id}`)
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data?.deletedCount) {
                     Swal.fire({
                         title: "ডিলিট হয়েছে!",

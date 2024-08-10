@@ -10,7 +10,7 @@ const TakenBooks = () => {
     // const [bookId, setBookId] = useState(null);
     // const [bookName, setBookName] = useState(null);
     // const [message, setMessage] = useState(null);
-    console.log(user);
+    // console.log(user);
     const axiosSecure = useAxiosSecure();
     const { data: receivedBooks, isFetching, refetch } = useQuery({
         queryKey: ['reqBooks'],
@@ -19,7 +19,7 @@ const TakenBooks = () => {
             return res.data;
         }
     })
-    console.log(receivedBooks);
+    // console.log(receivedBooks);
     return (
         <div>
             {
