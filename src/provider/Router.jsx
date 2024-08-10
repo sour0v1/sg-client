@@ -18,6 +18,8 @@ import UserProfile from "../pages/dashboard/user/UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import RequestedBooks from "../pages/dashboard/user/RequestedBooks";
 import ReqBooks from "../pages/dashboard/admin/ReqBooks";
+import GivenBooks from "../pages/dashboard/admin/GivenBooks";
+import TakenBooks from "../pages/dashboard/admin/TakenBooks";
 
 const router = createBrowserRouter([
     {
@@ -92,6 +94,14 @@ const router = createBrowserRouter([
             {
                 path: 'admin/applications/:id',
                 element: <Application></Application>
+            },
+            {
+                path : 'admin/given-books',
+                element : <GivenBooks></GivenBooks>
+            },
+            {
+                path : 'admin/taken-books',
+                element : <TakenBooks></TakenBooks>
             },
             // user dashboard
             {
