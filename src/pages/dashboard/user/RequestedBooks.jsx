@@ -38,7 +38,7 @@ const RequestedBooks = () => {
                         // text: "Your file has been deleted.",
                         icon: "success",
 
-                        confirmButtonColor : '#0D9276'
+                        confirmButtonColor: '#0D9276'
                     });
                     setLoading(false);
                     refetch();
@@ -61,8 +61,8 @@ const RequestedBooks = () => {
                                     <th>বই নং</th>
                                     <th>বইয়ের নাম</th>
                                     <th>লেখকের নাম</th>
-                                    {/* <th>পাঠকের নাম</th>
-                                    <th>ঠিকানা</th> */}
+                                    <th>পাঠকের নাম</th>
+                                    {/* <th>ঠিকানা</th> */}
                                     <th>নেয়ার তারিখ</th>
                                     <th>দেয়ার তারিখ</th>
                                     <th></th>
@@ -72,21 +72,25 @@ const RequestedBooks = () => {
                                 {/* row 1 */}
                                 {
                                     requestedBooks?.map((book, idx) =>
-                                        <tr key={idx} className="bg-base-200">
+                                        <tr key={idx} className="bg-base-200 border-b-2 border-white">
                                             <th>{book?.bookNo}</th>
                                             <td>{book?.bookName}</td>
                                             <td>{book?.author}</td>
-                                            {/* <td>{book?.name}</td>
-                                            <td>{book?.address}</td> */}
-                                            <td>-</td>
-                                            <td>-</td>
+                                            <td>{book?.name}</td>
+                                            {/* <td>{book?.address}</td> */}
+                                            <td>
+                                                {book?.takenDate ? book?.takenDate : '-'}
+                                            </td>
+                                            <td>
+                                                {book?.takenDate ? book?.takenDate : '-'}
+                                            </td>
                                             {
                                                 loading ?
                                                     <td>
                                                         <span className='text-red-500'>deleting...</span>
                                                     </td> :
                                                     <td onClick={() => handleDelete(book?._id)}>
-                                                        <span className='text-xl hover:bg-red-100 hover:text-red-500 p-2 inline-block rounded-full'><MdDelete /></span>
+                                                        <span className={`text-xl hover:bg-red-100 hover:text-red-500 p-2 inline-block rounded-full ${book?.takenDate && 'hidden'}`}><MdDelete /></span>
                                                     </td>
                                             }
                                             {/* {console.log(book)} */}

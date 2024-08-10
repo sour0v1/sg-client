@@ -36,6 +36,7 @@ const Dashboard = () => {
                                 <NavLink onClick={() =>{ setCategory(!category); setValue('প্রোফাইল')}} className={'hover:underline'} to={'admin/profile'}>প্রোফাইল</NavLink>
                                 <NavLink onClick={() =>{ setCategory(!category); setValue('বই যুক্ত করুন')}} className={'hover:underline'} to={'admin/add-book'}>বই যুক্ত করুন</NavLink>
                                 <NavLink onClick={() =>{ setCategory(!category); setValue('সদস্য যুক্ত করুন')}} className={'hover:underline'} to={'admin/add-member'}>সদস্য যুক্ত করুন</NavLink>
+                                <NavLink onClick={() =>{ setCategory(!category); setValue('আবেদনকৃত বই')}} className={'hover:underline'} to={'admin/req-books'}>আবেদনকৃত বই</NavLink>
                                 <NavLink onClick={() =>{ setCategory(!category); setValue('এপ্লিকেশন')}} className={'hover:underline'} to={'admin/applications'}>এপ্লিকেশন</NavLink>
                             </> :
                             <>

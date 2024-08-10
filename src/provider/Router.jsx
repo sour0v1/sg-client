@@ -17,6 +17,7 @@ import Login from "../pages/login/Login";
 import UserProfile from "../pages/dashboard/user/UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import RequestedBooks from "../pages/dashboard/user/RequestedBooks";
+import ReqBooks from "../pages/dashboard/admin/ReqBooks";
 
 const router = createBrowserRouter([
     {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             {
                 path: 'admin/add-member',
                 element: <AddMember></AddMember>
+            },
+            {
+                path : 'admin/req-books',
+                element : <ReqBooks></ReqBooks>
             },
             {
                 path: 'admin/applications/:id',
