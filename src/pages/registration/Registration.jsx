@@ -31,15 +31,15 @@ const Registration = () => {
         setLoading(true);
         // console.log(data);
 
-        const imageFile = { image: data?.photo[0] }
-        // console.log(imageFile)
+        // const imageFile = { image: data?.photo[0] }
+        // // console.log(imageFile)
 
-        const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        const photo = imageRes?.data?.data?.display_url
+        // const imageRes = await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGE_API_KEY}`, imageFile, {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //     }
+        // })
+        // const photo = imageRes?.data?.data?.display_url
         // console.log(photo)
         const name = data?.name
         const userInfo = {
@@ -54,7 +54,7 @@ const Registration = () => {
                 if (result?.user) {
                     updateProfile(auth.currentUser, {
                         displayName: name,
-                        photoURL: photo
+                        // photoURL: photo
                     })
                         .then(async () => {
                             navigate('/login')
@@ -82,11 +82,11 @@ const Registration = () => {
             })
     }
     // console.log(errors)
-    if (loading) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
-            <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
-        </div>
-    }
+    // if (loading) {
+    //     return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+    //         <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
+    //     </div>
+    // }
     return (
         <div className='h-screen w-full flex flex-col justify-center items-center bg-[#0D9276]'>
             <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/4 flex flex-col justify-center items-center gap-4 p-6 lg:border lg:rounded-xl lg:shadow-lg lg:shadow-white'>
@@ -100,11 +100,11 @@ const Registration = () => {
                     <input {...register('name', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="text" placeholder='নাম' />
                     {errors?.name && <span className='text-white'>নাম প্রয়োজন</span>}
                 </div>
-                <div className='space-y-1 text-white'>
+                {/* <div className='space-y-1 text-white'>
                     <span>ছবি</span>
                     <input {...register('photo', { required: true })} className='py-[5px] bg-gray-100 text-gray-500 outline-none px-3 w-full' type="file" placeholder='Your photo' />
                     {errors?.photo && <span className='text-white mt-1 inline-block'>ছবি প্রয়োজন</span>}
-                </div>
+                </div> */}
 
                 <div className='w-full'>
                     <input {...register('email', { required: true })} className='bg-gray-100 py-2 w-full outline-none px-3 text-[#0D9276]' type="email" placeholder='ইমেইল' />
@@ -116,7 +116,12 @@ const Registration = () => {
                     {errors?.password?.type === 'pattern' && <span className='text-white'>Password must be at least 6 characters long</span>}
                     <span onClick={() => setOpen(!open)} className='absolute top-3 right-4 text-[#0D9276]'>{!open ? <IoEyeOffOutline /> : <IoEyeOutline />}</span>
                 </div>
-                <input className='border hover:bg-white hover:text-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="রেজিস্টার" />
+                {
+                    loading ?
+                        <p className='border w-full py-2 text-center'><span className="loading loading-spinner text-white text-xl"></span></p> :
+                        <input className='border hover:bg-white hover:text-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="রেজিস্টার" />
+                }
+
                 <p className='text-white'>রেজিস্টার করেছেন? <Link className=' underline' to={'/login'}>লগ ইন</Link></p>
             </form>
         </div>

@@ -77,11 +77,11 @@ const Login = () => {
             })
     }
     // console.log(errorMessage);
-    if (loading) {
-        return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
-            <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
-        </div>
-    }
+    // if (loading) {
+    //     return <div className='lg:w-2/3 m-auto flex flex-col justify-center items-center gap-1 h-screen'>
+    //         <span className="loading loading-spinner text-[#0D9276] text-2xl"></span>
+    //     </div>
+    // }
     return (
         <div className='h-screen w-full flex flex-col justify-center items-center bg-[#0D9276]'>
             <dialog id="my_modal_3" className="modal">
@@ -137,7 +137,11 @@ const Login = () => {
                     </div>
                     <p className='' onClick={() => { document.getElementById('my_modal_3').showModal(); setEmailError(null) }}><Link className='text-white underline'>পাসওয়ার্ড ভুলে গিয়েছেন?</Link></p>
                 </div>
-                <input className='border bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white hover:bg-white hover:text-[#0D9276]' type="submit" value="লগ ইন" />
+                {
+                    loading ?
+                        <p className='border w-full py-2 text-center'><span className="loading loading-spinner text-white text-xl"></span></p> :
+                        <input className='border hover:bg-white hover:text-[#0D9276] bg-opacity-80 hover:bg-opacity-100 w-full py-2 text-white' type="submit" value="লগ ইন" />
+                }
                 <p className='text-white'>এখানে নতুন? <Link className=' underline' to={'/registration'}>রেজিস্টার</Link></p>
             </form>
         </div>

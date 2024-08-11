@@ -20,6 +20,7 @@ import RequestedBooks from "../pages/dashboard/user/RequestedBooks";
 import ReqBooks from "../pages/dashboard/admin/ReqBooks";
 import GivenBooks from "../pages/dashboard/admin/GivenBooks";
 import TakenBooks from "../pages/dashboard/admin/TakenBooks";
+import UserProfileEdit from "../pages/dashboard/user/UserProfileEdit";
 
 const router = createBrowserRouter([
     {
@@ -106,7 +107,11 @@ const router = createBrowserRouter([
             // user dashboard
             {
                 path: 'user/profile',
-                element : <UserProfile></UserProfile>
+                element : <UserProfile></UserProfile>,
+            },
+            {
+                path : 'user/profile/edit',
+                element : <UserProfileEdit></UserProfileEdit>
             },
             {
                 path : 'user/requested-books',
