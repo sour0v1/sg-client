@@ -15,7 +15,7 @@ const UserProfile = () => {
             return res.data;
         }
     })
-    console.log(userInfo);
+    // console.log(userInfo);
 
     if (loading) {
         return <div className='lg:w-2/3 m-auto flex flex-col justify-start items-center gap-1 h-screen'>

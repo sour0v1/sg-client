@@ -18,7 +18,7 @@ const UserProfileEdit = () => {
             return res.data;
         }
     })
-    console.log(userInfo);
+    // console.log(userInfo);
     // handle form
     const handleProfileEdit = async (e) => {
         e.preventDefault();
@@ -37,7 +37,7 @@ const UserProfileEdit = () => {
         }
 
         const res = await axiosSecure.post(`/edit-profile`, info)
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data?.modifiedCount) {
             setPending(false);
             setMessage('সফলভাবে আপডেট হয়েছে')
@@ -47,7 +47,7 @@ const UserProfileEdit = () => {
             setErrorMessage('দুঃখিত, আপনি কোন পরিবর্তন করেননি।')
         }
     }
-    console.log(message, errorMessage)
+    // console.log(message, errorMessage)
     // console.log(changed);
     return (
         <div className='w-full lg:w-1/2 mx-auto shadow-lg p-6 flex flex-col justify-center items-start gap-3 relative'>

@@ -38,8 +38,8 @@ const Dashboard = () => {
                                 <NavLink onClick={() => { setCategory(!category); setValue('সদস্য যুক্ত করুন') }} className={'hover:underline'} to={'admin/add-member'}>সদস্য যুক্ত করুন</NavLink>
                                 <NavLink onClick={() => { setCategory(!category); setValue('আবেদনকৃত বই') }} className={'hover:underline'} to={'admin/req-books'}>আবেদনকৃত বই</NavLink>
                                 <NavLink onClick={() => { setCategory(!category); setValue('এপ্লিকেশন') }} className={'hover:underline'} to={'admin/applications'}>এপ্লিকেশন</NavLink>
-                                <NavLink onClick={() => { setCategory(!category); setValue('এপ্লিকেশন') }} className={'hover:underline'} to={'admin/given-books'}>দেয়া বই</NavLink>
-                                <NavLink onClick={() => { setCategory(!category); setValue('এপ্লিকেশন') }} className={'hover:underline'} to={'admin/taken-books'}>নেয়া বই</NavLink>
+                                <NavLink onClick={() => { setCategory(!category); setValue('পাঠকের নেয়া বই') }} className={'hover:underline'} to={'admin/given-books'}>পাঠকের নেয়া বই</NavLink>
+                                <NavLink onClick={() => { setCategory(!category); setValue('জমা দেয়া বই') }} className={'hover:underline'} to={'admin/taken-books'}>জমা দেয়া বই</NavLink>
                             </> :
                             <>
                                 <NavLink onClick={() => { setCategory(!category); setValue('প্রোফাইল') }} className={'hover:underline'} to={'user/profile'}>প্রোফাইল</NavLink>
