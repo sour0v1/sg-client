@@ -34,10 +34,3 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
     **3. Install Dependencies :**     
     ```npm install```  
 
-    **4. Set Up Firebase :**  
-    Create a Firebase project and configure your environment with Firebase   credentials:     
-    FIREBASE_API_KEY=your_api_key  
-    FIREBASE_AUTH_DOMAIN=your_auth_domain  
-    FIREBASE_PROJECT_ID=your_project_id  
-    ......
-
