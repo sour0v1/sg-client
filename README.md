@@ -25,8 +25,23 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
   
   ### How to Use:
    #### Client
-   **1. Clone the Repository :**    
-   ```git clone https://github.com/sour0v1/sg-client.git```  
+    **1. Clone the Repository :**    
+    ```git clone https://github.com/sour0v1/sg-client.git```  
 
-   **2. Navigate to the Project Directory :**     
-   ```cd sg-client```  
+    **2. Navigate to the Project Directory :**     
+    ```cd sg-client```  
+
+    **3. Install Dependencies :**     
+    ```npm install```  
+
+    **4. Set Up Firebase :**  
+    Create a Firebase project and configure your environment with Firebase credentials:     
+    ```
+     VITE_apiKey
+     VITE_authDomain
+     VITE_projectId
+     VITE_storageBucket
+     VITE_messagingSenderId
+     VITE_appId
+     VITE_IMAGE_API_KEY
+    ```  
