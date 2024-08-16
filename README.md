@@ -23,6 +23,7 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
    - **State Management:** Managed using React’s state and context APIs, along with TanStack Query for efficient server state management.   
    - **Data Fetching:**  Used Tanstack Query(React Query) and Axios.
 ## How to Use
+This project is set up using Vite, a fast build tool and development server, to enhance performance during development.
 
   #### Clone the Repository:
   `git clone https://github.com/sour0v1/sg-client.git`
@@ -41,5 +42,10 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
   FIREBASE_PROJECT_ID=your_project_id
   ......
   ```
+  #### Run the Backend:
+  Make sure the backend server (Express.js) is running and connected to your MongoDB instance.
+
+  #### Start the Development Server (Using Vite):
+  `npm run dev`
   
 
