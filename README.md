@@ -5,9 +5,9 @@ An easy-to-use web application where users can browse books by category, search 
 Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
 
 ### Features:
- - **Search and Browse**
-  - Explore books by categories such as Fiction, Non-Fiction, Science, etc.
-  - Search by book title or author’s name.
+  #### Search and Browse
+    - Explore books by categories such as Fiction, Non-Fiction, Science, etc.
+    - Search by book title or author’s name.
 
   ### Membership and Registration:
 **Search and Browse**
