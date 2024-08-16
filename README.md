@@ -21,6 +21,10 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
    - **Database:** MongoDB for storing and managing book, member, and borrowing data.
    - **Firebase**: Used for user authentication.  
    - **State Management:** Managed using React’s state and context APIs, along with TanStack Query for efficient server state management.   
-   - **Data Fetching:**  Used Tanstack Query(React Query) and Axios.  
+   - **Data Fetching:**  Used Tanstack Query(React Query) and Axios.
+## How to Use
+
+  ### Clone the Repository:
+  `git clone https://github.com/your-username/library-website-client.git`
   
 
