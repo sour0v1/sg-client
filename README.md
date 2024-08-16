@@ -24,7 +24,22 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
    - **Data Fetching:**  Used Tanstack Query(React Query) and Axios.
 ## How to Use
 
-  ### Clone the Repository:
-  `git clone https://github.com/your-username/library-website-client.git`
+  #### Clone the Repository:
+  `git clone https://github.com/sour0v1/sg-client.git`
+
+  #### Navigate to the Project Directory:
+  `cd sg-client`
+
+  #### Install Dependencies:
+  `npm install`
+
+  #### Set Up Firebase:
+  Create a Firebase project and configure your environment with Firebase credentials:
+  ```
+  FIREBASE_API_KEY=your_api_key
+  FIREBASE_AUTH_DOMAIN=your_auth_domain
+  FIREBASE_PROJECT_ID=your_project_id
+  ......
+  ```
   
 
