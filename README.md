@@ -16,4 +16,10 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
    - **Borrow Request Management:** Admins can manage book borrowing requests, approve them, and track the borrowing history of members.  
  
    ### Technologies Used:
-   - 
+   - **Frontend:** Built using HTML, CSS, and JavaScript, with React.js for a dynamic user interface.  
+   - **Backend:** Powered by Express.js, handling API requests and server-side logic.  
+   - **Database:** MongoDB for storing and managing book, member, and borrowing data.
+   - **Firebase**: Used for user authentication.  
+   - **State Management:** Managed using React’s state and context APIs, along with TanStack Query for efficient server state management.   
+   - **Data Fetching:**  Used Tanstack Query(React Query) and Axios.  
+
