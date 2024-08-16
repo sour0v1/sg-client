@@ -4,19 +4,28 @@ An easy-to-use web application where users can browse books by category, search 
 
 Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
 
-### Features:
+### Features
   #### Search and Browse:
    - Explore books by categories such as Fiction, Non-Fiction, Science, etc.
    - Search by book title or author’s name.
 
- #### Membership and Registration:
+  #### Membership and Registration:
    - Users can fill out a registration form to become members of the library.
    - Members can log in to access additional features, such as viewing their borrowing history and managing their profile.
 
- #### Borrowing System:
+  #### Borrowing System:
    - Registered members can request to borrow available books.
    - Track borrowing requests and return deadlines.
 
-### Admin Panel
+  #### Admin Panel:
    - Add book, member and approve membership application.
    - Approve or reject book borrowing requests and manage returns.
+  
+### Installation
+  #### Prerequisites:
+  - Ensure you have **Node.js** installed on your machine.
+  - Set up a **MongoDB** database (local or cloud-based).
+  
+  #### Set Up:
+   **1.Clone the Repository**
+  ```git clone https://github.com/your-username/library-management-system.git```
