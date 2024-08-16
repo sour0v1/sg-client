@@ -23,14 +23,4 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
    - **State Management:** Managed using React’s state and context APIs, along with TanStack Query for efficient server state management.   
    - **Data Fetching:**  Used Tanstack Query(React Query) and Axios.  
   
-  ### How to Use:
-   #### Client
-    **1. Clone the Repository :**    
-    ```git clone https://github.com/sour0v1/sg-client.git```  
-
-    **2. Navigate to the Project Directory :**     
-    ```cd sg-client```  
-
-    **3. Install Dependencies :**     
-    ```npm install```  
 
