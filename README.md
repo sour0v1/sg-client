@@ -36,12 +36,4 @@ Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
 
     **4. Set Up Firebase :**  
     Create a Firebase project and configure your environment with Firebase credentials:     
-    ```
-     VITE_apiKey
-     VITE_authDomain
-     VITE_projectId
-     VITE_storageBucket
-     VITE_messagingSenderId
-     VITE_appId
-     VITE_IMAGE_API_KEY
-    ```  
+    ```api_key : your api key  ```
