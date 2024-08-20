@@ -43,7 +43,7 @@ This project is set up using [Vite](https://vitejs.dev/guide/), a fast build too
   ......
   ```
   #### Run the Backend:
-  Make sure the backend server (Express.js) is running and connected to your MongoDB instance.
+  Make sure the [backend server](https://github.com/sour0v1/sg-server/) is running and connected to your MongoDB instance.
 
   #### Start the Development Server (Using Vite):
   `npm run dev`
