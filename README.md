@@ -1,7 +1,7 @@
-# Swapnashray-Granthagar
+# sg-client
 This repository contains the frontend of a comprehensive library management website. The platform allows users to explore, search, and borrow books, with Firebase integration for user authentication, and Express and MongoDB handling the backend and database management.
 
-Live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
+Website live link - [Swapnashray-Granthagar](https://swapnashray-granthagar.web.app/)
 
 ## Features  
 
